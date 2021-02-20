@@ -26,7 +26,7 @@ why not just use magic strings and simply write it like this:<br/>
 Well....<br/>
 Because screw this! (╯°□°）╯︵ `;(ϛ ',,ǝʌoWX,,)ʇɐolℲʇǝS˙ɹoʇɐɯᴉuɐ`
 
-<h3/>
+<br/>
 
 Magic strings are considered bad as they are very error-prone, they are non-performant and slow as no optimization is applied on them by the compiler as they are dynamically changing, the more you use them the more it will add up that will not only cause performance problems but will also make it harder to fix the bugs on your code.
 
@@ -43,7 +43,7 @@ Plus you got some of that neat pop up suggestions on other related constant prop
 
 ## Features ##
 
-### ( Constants Generation ) ### <br/>
+### ( Constants Generation ) ###
 #### ConstGen can generate the type of unity constants for: ####
 - [x] Layers
 - [x] Tags
@@ -81,8 +81,10 @@ NOTE: All generator update checks are are done upon editor recompile so the gene
 
 ### Generation ###
 
-**[Generate]** - Updates the type of constants or generates the file is none is present. <br/>
-**[Force Generate]** - Deletes the file on the type of constants and let the generator regenerate a new one. <br/>
+**[Generate]** - Updates the type of constants or generates the file is none is present.
+
+**[Force Generate]** - Deletes the file on the type of constants and let the generator regenerate a new one.
+
 **[Generate ALL] & [Force Generate ALL]** - you know.....just like the generate & force generate buttons but instead triggers all generators.
 
 ### Constants Files/Generated Files ###
@@ -116,5 +118,4 @@ Import the `ConstGenConstants` namespace on which the constants are in and from 
 ![meme](https://github.com/INFGameDev/Project-ReadMe-Images/blob/master/ConstGen/no%20magic%20strings%20meme.png)
 
 - - - -
-
 The code generation process is based from srndpty's CodeGen: https://github.com/srndpty/CodeGen
