@@ -1,0 +1,132 @@
+using System.IO;
+using System.Text;
+using UnityEditor;
+using UnityEngine;
+using UnityEditorInternal;
+using System;
+using System.Linq;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
+
+namespace ~NameSpace~
+{
+    //[InitializeOnLoad]
+    public class ~ClassName~ 
+    {
+        #region Variables ==================================================================================================================
+        private const string FileName = "~OutputFileName~";
+        
+        /// <summary>
+        /// An instance of the generator class itself
+        /// it's main purpose is to instantiate and cache a ConstantGenerator as it's property
+        /// to be used for generating the code
+        /// </summary>
+        private static ~ClassName~ instance;
+        private ConstantGenerator generator_ = new ConstantGenerator();
+        private static ConstantGenerator generator { get { return instance.generator_; } }
+        private static string FilePath { get { return string.Format(ConstantGenerator.FilePathFormat, generator.GetOutputPath(), FileName); } }
+        
+        private const bool regenerateOnMissing = true;
+        private List<string> properties;
+        #endregion Variables ===============================================================================================================
+
+        // static constructor
+        // get's called with the class when [InitializeOnLoad] happens
+        static ~ClassName~()
+        {
+            if (instance != null) return;
+            CreateGeneratorInsance();
+
+            // Generate Ccpde is no file in the directory exist
+            if (!File.Exists(FilePath) && regenerateOnMissing)
+            {
+                Debug.LogWarning( "[ " + FileName + " ] is not found, Generating a new one...");
+                Generate();
+            }
+
+        }
+
+        private static void CreateGeneratorInsance()
+        {
+            if (instance != null) return;
+
+            // create self instance of the class
+            // then create and cache the ConstantGenerator instance to it's property
+            instance = new ~ClassName~();
+            instance.generator_ = new ConstantGenerator();
+
+            instance.properties = new List<string>();
+        }
+
+        public static void Generate()
+        {
+            CreateGeneratorInsance();
+
+            // always clear the properties list before storing new elements to it
+            instance.properties.Clear();
+            instance.properties = RetriveValues();
+
+            GenerateCode();
+        }
+
+        /// <summary>
+        /// Generators automatically generate their out files when not present
+        /// so we can force them to generate it by deleting the file
+        /// </summary>
+        public static void ForceGenerate()
+        {
+            CreateGeneratorInsance();
+
+            if ( File.Exists(FilePath) ) {
+                AssetDatabase.DeleteAsset( FilePath );
+                AssetDatabase.Refresh();
+            }
+            else
+            {
+                Debug.LogWarning( "[ " + FileName + " ] ForceGenerate Failed, trying to delete an non existent file" );                
+            }
+        }
+
+        private string GetScriptName()
+        {
+            StringBuilder name = new StringBuilder( this.ToString() );
+            int dotIndex = name.ToString().IndexOf('.');
+            name.Remove( 0, dotIndex+1 );
+
+            return name.ToString();
+        }
+
+        static List<string> RetriveValues()
+        {
+            return null;
+        }
+
+        private static void GenerateCode()
+        {
+            generator.GenerateCodeFile(FilePath, generator.GetOutputPath(), content =>
+            {
+                WrappedInt indentCount = 0;
+
+                // NOTE: indentCount is automatically increamented or decreamented by
+                // ContentWriter methods 
+
+                // An indent is added when a new CurlyBrackets IDisposable instance is created
+                // and removed everytime that IDisposable instance is disposed of
+                // (when the control has excited from the using statement)
+
+                content.WriteIndentedLine( indentCount, generator.GetHeaderText( instance.GetScriptName() ) ); 
+                content.WriteImports( "UnityEngine" );
+
+                using (new CurlyBrackets(content, ConstantGenerator.OutputFileNamespace, indentCount))
+                {
+                    using (new CurlyBrackets(content, "public static class " + FileName, indentCount))
+                    {
+                        
+                    }                    
+                }
+            });
+        }
+    }
+}
+
+
