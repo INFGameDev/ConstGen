@@ -63,6 +63,9 @@ Plus you got some of that neat pop up suggestions on other related constant prop
 
 ## Usage ##
 
+Access the ConstGen window in the Main Menu <br/>
+![accessing the window](https://github.com/INFGameDev/Project-ReadMe-Images/blob/master/ConstGen/Main_Menu.png)
+
 ### ( Generating Constants ) ###
 ![generating constants](https://github.com/INFGameDev/Project-ReadMe-Images/blob/master/ConstGen/GeneratingConstants.png)
 
@@ -87,7 +90,7 @@ NOTE: All generator update checks are are done upon editor recompile so the gene
 ### Constants Files/Generated Files ###
 ![generated files](https://github.com/INFGameDev/Project-ReadMe-Images/blob/master/ConstGen/generated_files.PNG)
 
-Constants files are generated at (ConstGen/Generated Files) directory.
+Constants files are generated at (Scripts/ConstGen Files/Generated Files) directory.
 
 NOTE: Don't move around the files inside the ConstGen folder as it will break the generators but you can move the ConstGen folder itself at any directory in the Assets.
 
@@ -103,7 +106,7 @@ You can create generator scripts like the ones ConstGen use to generate the cons
 
 **Output File Name** - The name of the generated file by the generator which is also the generated file's script name.
 
-Created generators are generated in (ConstGen/Editor/Generated Generators)
+Created generators are generated in (Scripts/ConstGen Files/Custom Generators)
 
 - - - -
 
