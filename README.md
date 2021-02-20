@@ -44,7 +44,6 @@ Plus you got some of that neat pop up suggestions on other related constant prop
 ## Features ##
 
 ### ( Constants Generation ) ###
-
 #### ConstGen can generate the type of unity constants for: ####
 - [x] Layers
 - [x] Tags
@@ -56,12 +55,16 @@ Plus you got some of that neat pop up suggestions on other related constant prop
 - [x] Nav Mesh Areas <br/>
 
 ### ( Constant Generator Creation ) ###
+
 #### ConstGen can also create generator scripts ####
 ![generator creation](https://github.com/INFGameDev/Project-ReadMe-Images/blob/master/ConstGen/GeneratorCreation.png)
 
 - - - -
 
 ## Usage ##
+
+Access the ConstGen window in the Main Menu <br/>
+![accessing the window](https://github.com/INFGameDev/Project-ReadMe-Images/blob/master/ConstGen/Main_Menu.png)
 
 ### ( Generating Constants ) ###
 ![generating constants](https://github.com/INFGameDev/Project-ReadMe-Images/blob/master/ConstGen/GeneratingConstants.png)
@@ -80,17 +83,16 @@ NOTE: All generator update checks are are done upon editor recompile so the gene
 
 **[Generate]** - Updates the type of constants or generates the file is none is present.
 
-**[Force Generate]** - Deletes the file on the type of constants and let the generator regenerate a new one. 
+**[Force Generate]** - Deletes the file on the type of constants and let the generator regenerate a new one.
 
 **[Generate ALL] & [Force Generate ALL]** - you know.....just like the generate & force generate buttons but instead triggers all generators.
 
 ### Constants Files/Generated Files ###
 ![generated files](https://github.com/INFGameDev/Project-ReadMe-Images/blob/master/ConstGen/generated_files.PNG)
 
-Constants files are generated at (ConstGen/Generated Files) directory.
+Constants files are generated at (Scripts/ConstGen Files/Generated Files) directory.
 
-NOTE: Don't move around the files inside the ConstGen folder as it will break the generators but you can move the ConstGen folder itself at any directory in the Assets.
-
+NOTE: Don't move around the files inside the ConstGen folder as it will break the generators but you can move the ConstGen folder itself at any directory in the Assets. <br/>
 ANOTHER NOTE: In the event of for some reason the generated files has an error and [Force Generate] won't delete the file, you can manually delete the file itself in the it's folder with the **[ReGen On Missing]** turned on and the generator/s will try to generate a new file.
 
 
@@ -99,11 +101,10 @@ ANOTHER NOTE: In the event of for some reason the generated files has an error a
 
 You can create generator scripts like the ones ConstGen use to generate the constants properties you want through script. 
 
-**Generated Name** - Already self explanatory, this will also be the name of the generator script.
-
+**Generated Name** - Already self explanatory, this will also be the name of the generator script. <br/>
 **Output File Name** - The name of the generated file by the generator which is also the generated file's script name.
 
-Created generators are generated in (ConstGen/Editor/Generated Generators)
+Created generators are generated in (Scripts/ConstGen Files/Custom Generators)
 
 - - - -
 
@@ -117,5 +118,4 @@ Import the `ConstGenConstants` namespace on which the constants are in and from 
 ![meme](https://github.com/INFGameDev/Project-ReadMe-Images/blob/master/ConstGen/no%20magic%20strings%20meme.png)
 
 - - - -
-
 The code generation process is based from srndpty's CodeGen: https://github.com/srndpty/CodeGen
