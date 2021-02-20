@@ -40,12 +40,26 @@ namespace ConstGen
 
         public string GetOutputPath()
         {
-            string s = "/Editor/Core/ConstantGenerator.cs";
-            string[] guidPath = AssetDatabase.FindAssets( "t:script ConstantGenerator" );
-            string folderPath = AssetDatabase.GUIDToAssetPath(guidPath[0]);
-            folderPath = folderPath.Replace( s, String.Empty );
-            folderPath += "/Generated Constants";
-            return folderPath;
+            // string s = "/Editor/Core/ConstantGenerator.cs";
+            // string[] guidPath = AssetDatabase.FindAssets( "t:script ConstantGenerator" );
+            // string folderPath = AssetDatabase.GUIDToAssetPath(guidPath[0]);
+            // folderPath = folderPath.Replace( s, String.Empty );
+            // folderPath += "/Generated Constants";
+            // return folderPath;
+
+            return "Assets/Scripts/ConstGen Files/Generated Constants";
+        }
+
+        public string GetTemplateOutputPath()
+        {
+            // string s = "/Core/ConstantGenerator.cs";
+            // string[] guidPath = AssetDatabase.FindAssets( "t:script ConstantGenerator" );
+            // string folderPath = AssetDatabase.GUIDToAssetPath(guidPath[0]);
+            // folderPath = folderPath.Replace( s, String.Empty );
+            // folderPath += "/Generated Generators";
+            // return folderPath;
+
+            return "Assets/Scripts/ConstGen Files/Custom Generators";
         }
 
         public static ConstGenSettings GetSettingsFile()
@@ -54,19 +68,9 @@ namespace ConstGen
             string[] guidPath = AssetDatabase.FindAssets( "t:script ConstantGenerator" );
             string folderPath = AssetDatabase.GUIDToAssetPath(guidPath[0]);
             folderPath = folderPath.Replace( s, String.Empty );
-            folderPath += "/Others/ConstGenSettings.asset";
+            folderPath += "/Settings/ConstGenSettings.asset";
 
             return AssetDatabase.LoadAssetAtPath<ConstGenSettings>( folderPath );
-        }
-
-        public string GetTemplateOutputPath()
-        {
-            string s = "/Core/ConstantGenerator.cs";
-            string[] guidPath = AssetDatabase.FindAssets( "t:script ConstantGenerator" );
-            string folderPath = AssetDatabase.GUIDToAssetPath(guidPath[0]);
-            folderPath = folderPath.Replace( s, String.Empty );
-            folderPath += "/Generated Generators";
-            return folderPath;
         }
 
         public string GetTemplatesPath()
@@ -85,7 +89,7 @@ namespace ConstGen
             string[] guidPath = AssetDatabase.FindAssets( "t:script ConstantGenerator" );
             string folderPath = AssetDatabase.GUIDToAssetPath(guidPath[0]);
             folderPath = folderPath.Replace( s, String.Empty );
-            folderPath += "/Others/INF.png";
+            folderPath += "/Images/INF.png";
             Texture t = AssetDatabase.LoadAssetAtPath<Texture>( folderPath );
             return t;
         }
@@ -96,7 +100,7 @@ namespace ConstGen
             string[] guidPath = AssetDatabase.FindAssets( "t:script ConstantGenerator" );
             string folderPath = AssetDatabase.GUIDToAssetPath(guidPath[0]);
             folderPath = folderPath.Replace( s, String.Empty );
-            folderPath += "/Others/Border.png";
+            folderPath += "/Images/Border.png";
             Texture t = AssetDatabase.LoadAssetAtPath<Texture>( folderPath );
             return t;
         }
