@@ -6,7 +6,6 @@
 
 # Const Generator
 Unity Constants Generator
-
 ![ConstGen Window](https://github.com/INFGameDev/Project-ReadMe-Images/blob/master/ConstGen/ConstGenWIndow.PNG)
 
 Tested on Unity Versions: <br/>
@@ -25,8 +24,6 @@ why not just use magic strings and simply write it like this:<br/>
 
 Well....<br/>
 Because screw this! (╯°□°）╯︵ `;(ϛ ',,ǝʌoWX,,)ʇɐolℲʇǝS˙ɹoʇɐɯᴉuɐ`
-
-<br/>
 
 Magic strings are considered bad as they are very error-prone, they are non-performant and slow as no optimization is applied on them by the compiler as they are dynamically changing, the more you use them the more it will add up that will not only cause performance problems but will also make it harder to fix the bugs on your code.
 
@@ -81,10 +78,8 @@ NOTE: All generator update checks are are done upon editor recompile so the gene
 
 ### Generation ###
 
-**[Generate]** - Updates the type of constants or generates the file is none is present.
-
-**[Force Generate]** - Deletes the file on the type of constants and let the generator regenerate a new one. 
-
+**[Generate]** - Updates the type of constants or generates the file is none is present. <br/>
+**[Force Generate]** - Deletes the file on the type of constants and let the generator regenerate a new one. <br/>
 **[Generate ALL] & [Force Generate ALL]** - you know.....just like the generate & force generate buttons but instead triggers all generators.
 
 ### Constants Files/Generated Files ###
@@ -92,8 +87,7 @@ NOTE: All generator update checks are are done upon editor recompile so the gene
 
 Constants files are generated at (Scripts/ConstGen Files/Generated Files) directory.
 
-NOTE: Don't move around the files inside the ConstGen folder as it will break the generators but you can move the ConstGen folder itself at any directory in the Assets.
-
+NOTE: Don't move around the files inside the ConstGen folder as it will break the generators but you can move the ConstGen folder itself at any directory in the Assets. <br/>
 ANOTHER NOTE: In the event of for some reason the generated files has an error and [Force Generate] won't delete the file, you can manually delete the file itself in the it's folder with the **[ReGen On Missing]** turned on and the generator/s will try to generate a new file.
 
 
@@ -102,8 +96,7 @@ ANOTHER NOTE: In the event of for some reason the generated files has an error a
 
 You can create generator scripts like the ones ConstGen use to generate the constants properties you want through script. 
 
-**Generated Name** - Already self explanatory, this will also be the name of the generator script.
-
+**Generated Name** - Already self explanatory, this will also be the name of the generator script. <br/>
 **Output File Name** - The name of the generated file by the generator which is also the generated file's script name.
 
 Created generators are generated in (Scripts/ConstGen Files/Custom Generators)
