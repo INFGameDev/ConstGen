@@ -49,10 +49,10 @@ namespace ConstGen
                     foreach (string property in instance.newProperties)
                     {
                         // ex) assets/scenes/menu.unity -> menu 
-                        // var tail = property.Substring(property.LastIndexOf('/') + 1);
-                        // var result = tail.Substring(0, tail.LastIndexOf('.'));
+                        var tail = property.Substring(property.LastIndexOf('/') + 1);
+                        var result = tail.Substring(0, tail.LastIndexOf('.'));
 
-                        content.WriteConstant( indentCount, DT.Int, _ConstGen.MakeIdentifier(property), z.ToString() );
+                        content.WriteConstant( indentCount, DT.Int, _ConstGen.MakeIdentifier(result), z.ToString() );
                         z++;
                     }
                 }
