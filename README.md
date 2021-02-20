@@ -26,6 +26,8 @@ why not just use magic strings and simply write it like this:<br/>
 Well....<br/>
 Because screw this! (╯°□°）╯︵ `;(ϛ ',,ǝʌoWX,,)ʇɐolℲʇǝS˙ɹoʇɐɯᴉuɐ`
 
+<h3/>
+
 Magic strings are considered bad as they are very error-prone, they are non-performant and slow as no optimization is applied on them by the compiler as they are dynamically changing, the more you use them the more it will add up that will not only cause performance problems but will also make it harder to fix the bugs on your code.
 
 So instead so we use constants, by this way we are fixing a variable's value so that it can be optimized, not only that it also eliminates the error of writing a typo in which the compiler has no whatsoever idea but will instead propagate an error at runtime causing annoying problems and bugs. 
@@ -41,8 +43,7 @@ Plus you got some of that neat pop up suggestions on other related constant prop
 
 ## Features ##
 
-### ( Constants Generation ) ###
-
+### ( Constants Generation ) ### <br/>
 #### ConstGen can generate the type of unity constants for: ####
 - [x] Layers
 - [x] Tags
@@ -54,6 +55,7 @@ Plus you got some of that neat pop up suggestions on other related constant prop
 - [x] Nav Mesh Areas <br/>
 
 ### ( Constant Generator Creation ) ###
+
 #### ConstGen can also create generator scripts ####
 ![generator creation](https://github.com/INFGameDev/Project-ReadMe-Images/blob/master/ConstGen/GeneratorCreation.png)
 
