@@ -93,6 +93,8 @@ NOTE: All generator update checks are are done upon editor recompile so the gene
 Constants files are generated at (Scripts/ConstGen Files/Generated Files) directory.
 
 NOTE: Don't move around the files inside the ConstGen folder as it will break the generators but you can move the ConstGen folder itself at any directory in the Assets. <br/>
+Also don't change or moved the folder the generated files are in cause the generatics look for that specific directory for the files inside when updated and generating files.
+
 ANOTHER NOTE: In the event of for some reason the generated files has an error and [Force Generate] won't delete the file, you can manually delete the file itself in the it's folder with the **[ReGen On Missing]** turned on and the generator/s will try to generate a new file.
 
 
