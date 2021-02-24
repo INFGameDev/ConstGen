@@ -1,12 +1,12 @@
 ﻿using System.IO;
 using System.Text;
-using UnityEditor;
 using UnityEngine;
-using UnityEditorInternal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
+using UnityEditor;
+using UnityEditorInternal;
 
 namespace ConstGen
 {
@@ -29,6 +29,7 @@ namespace ConstGen
         public const string FilePathFormat = "{0}/{1}.cs";
         public const string TemplatePathFormat = "{0}/{1}.txt";
         public const string ClassFormat = "public static class {0}";
+        public ConstGenSettings settings;
         // public const string StringPrefix = "_";
 
         public string GetHeaderText( string generatorName )
@@ -59,12 +60,13 @@ namespace ConstGen
             // folderPath += "/Generated Generators";
             // return folderPath;
 
-            return "Assets/Scripts/ConstGen Files/Custom Generators";
+            return "Assets/Scripts/ConstGen Files/Custom Generators/Editor";
         }
 
+#if UNITY_EDITOR
         public static ConstGenSettings GetSettingsFile()
         {
-            string s = "/Editor/Core/ConstantGenerator.cs";
+            string s = "/Core/ConstantGenerator.cs";
             string[] guidPath = AssetDatabase.FindAssets( "t:script ConstantGenerator" );
             string folderPath = AssetDatabase.GUIDToAssetPath(guidPath[0]);
             folderPath = folderPath.Replace( s, String.Empty );
@@ -75,7 +77,7 @@ namespace ConstGen
 
         public string GetTemplatesPath()
         {
-            string s = "/Editor/Core/ConstantGenerator.cs";
+            string s = "/Core/ConstantGenerator.cs";
             string[] guidPath = AssetDatabase.FindAssets( "t:script ConstantGenerator" );
             string folderPath = AssetDatabase.GUIDToAssetPath(guidPath[0]);
             folderPath = folderPath.Replace( s, String.Empty );
@@ -85,7 +87,7 @@ namespace ConstGen
 
         public static Texture GetLogo()
         {
-            string s = "/Editor/Core/ConstantGenerator.cs";
+            string s = "/Core/ConstantGenerator.cs";
             string[] guidPath = AssetDatabase.FindAssets( "t:script ConstantGenerator" );
             string folderPath = AssetDatabase.GUIDToAssetPath(guidPath[0]);
             folderPath = folderPath.Replace( s, String.Empty );
@@ -96,7 +98,7 @@ namespace ConstGen
 
         public static Texture GetBorder()
         {
-            string s = "/Editor/Core/ConstantGenerator.cs";
+            string s = "/Core/ConstantGenerator.cs";
             string[] guidPath = AssetDatabase.FindAssets( "t:script ConstantGenerator" );
             string folderPath = AssetDatabase.GUIDToAssetPath(guidPath[0]);
             folderPath = folderPath.Replace( s, String.Empty );
@@ -104,6 +106,14 @@ namespace ConstGen
             Texture t = AssetDatabase.LoadAssetAtPath<Texture>( folderPath );
             return t;
         }
+
+        public static void ForceGenerateALL()
+        {
+            Directory.Delete( "Assets/Scripts/ConstGen Files/Generated Constants", true );
+            AssetDatabase.DeleteAsset( "Assets/Scripts/ConstGen Files/Generated Constants.meta" );
+            AssetDatabase.Refresh();
+        }
+#endif
 
         /// <summary>
         /// Generates the code file into target path
@@ -149,48 +159,107 @@ namespace ConstGen
             {
                 Debug.LogException(e);
             }
+
+#if UNITY_EDITOR
             AssetDatabase.Refresh();
+#endif
         }
 
-        /// <summary>
-        /// Check if there are changes present in the two list of property strings
-        /// </summary>
-        /// <param name="a"></param>
-        /// <param name="b"></param>
-        /// <returns></returns>
-        public bool UpdateChangeCheck(List<string> a, List<string> b)
-        {
-            if (a.Count != b.Count) {
-                return true;
-            }
-            else
-            {
-                // loop thru all new tags and compare them to the old ones
-                for (int i = 0; i < a.Count; i++)
-                {
-                    if (!string.Equals(a[i], b[i]))
-                    {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-
-        public string MakeIdentifier(string str)
+        private string UnderscoreIdentifier( string str )
         {
             string result = Regex.Replace(str, "([^a-zA-Z0-9])", "_");
+
             if ('0' <= result[0] && result[0] <= '9')
             {
                 result = result.Insert(0, "_");
             }
 
-            return result;
+            return result;            
         }
 
         public string EscapeDoubleQuote(string str)
         {
             return str.Replace("\"", "\"\"");
         }
+
+        public string CreateIdentifier(string str )
+        {
+            if ( settings == null )
+                settings = GetSettingsFile();
+
+            string formattedIndentifier = string.Empty;
+
+            if ( settings.indentifierFormat == ConstGenSettings.IndentifierFormat.Under_Score_Divider )
+            {
+                formattedIndentifier = UnderscoreIdentifier( str );
+            } 
+            else 
+            {
+                formattedIndentifier = PascalCaseNoSpaceIndentifier( str );
+            }
+
+            return formattedIndentifier;
+        }
+
+        public string PascalCaseNoSpaceIndentifier( string str )
+        {
+            // turn all the unnecessary characters invalid for naming conventions to an underscore
+            string validNaming = UnderscoreIdentifier( str );
+
+            // divide the string into individual words
+            char[] dividers = { '_' };
+            string[] words = validNaming.Split( dividers ); 
+
+            // loop through it and turn it's first letter into upper case
+            for (int i = 0; i < words.Length; i++)
+            {
+                if ( words[i] == string.Empty )
+                    continue;
+
+                string s = words[i];
+
+                // turn the first letter to upper case then add the rest of the word to it
+                words[i] = char.ToUpper(s[0]) + s.Substring(1, s.Length-1);
+            }
+
+            string formatedString = string.Empty;
+
+            // append all words into a single string
+            for (int i = 0; i < words.Length; i++) 
+            {
+                formatedString += words[i];
+            }
+
+            return formatedString;
+        }
+
+        // public string RemoveChars( string str, char[] toRemoveChars )
+        // {
+        //     string formated = str;
+
+        //     for (int i = 0; i < toRemoveChars.Length; i++)
+        //     {
+        //         // for each char we will remove it from the string
+
+        //         // check if the char present on the string
+        //         while ( formated.IndexOf( toRemoveChars[i] ) >= 0 )
+        //         {
+        //             // cache it's index
+        //             int index = formated.IndexOf(toRemoveChars[i]);
+
+        //             // remove it and store it back to the string
+        //             formated = formated.Remove(index,1);
+        //         }                
+        //     }
+
+        //     return formated;
+        // }
+
+        // public string NoSpaceIndentifier( string str )
+        // {
+        //     string formattedString = UnderscoreIdentifier( str );
+        //     formattedString = RemoveChars( formattedString,new char[] { '_', '-' } );
+        //     return formattedString;
+        // }
     }   
 }

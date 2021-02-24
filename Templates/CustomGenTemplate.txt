@@ -1,0 +1,43 @@
+using System.IO;
+using System.Text;
+using UnityEditor;
+using UnityEngine;
+using UnityEditorInternal;
+using System;
+using System.Linq;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
+
+namespace ConstGen
+{
+    public class ~CLASSNAME~ : CustomGenBase<~CLASSNAME~, ~OUTPUTTYPE~>
+    {
+        /// <summary>
+        /// Generates the file by writing new updated contents or generates the file is none is present
+        /// </summary>
+        public override void Generate()
+        {
+            CreateGeneratorInstance();
+            SetPaths();
+
+            instance.GenerateCode(
+                content =>
+                {
+                    WrappedInt indentCount = 2; 
+
+                }
+            );
+        }
+
+        protected override void SetPaths()
+        {
+            outputPath = "~OUTPUTPATH~";
+            outputFileName = "~OUTPUTFILENAME~";
+        }
+
+        protected override List<~OUTPUTTYPE~> RetriveValues()
+        {
+            return null;
+        }
+    }
+}

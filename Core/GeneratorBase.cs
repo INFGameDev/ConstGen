@@ -1,8 +1,8 @@
 ﻿using System.IO;
 using System.Text;
 using UnityEditor;
-using UnityEngine;
 using UnityEditorInternal;
+using UnityEngine;
 using System;
 using System.Linq;
 using System.Collections.Generic;
@@ -29,6 +29,7 @@ namespace ConstGen
         
         protected bool regenerateOnMissing;
         protected bool updateOnReload;
+        protected ConstGenSettings.IndentifierFormat indentifierFormat;
         protected List<PropType> oldProperties;
         protected List<PropType> newProperties;
         #endregion Variables ==================================================================================
@@ -45,7 +46,7 @@ namespace ConstGen
             return name.ToString();
         }
 
-        protected static void CreateGeneratorInsance()
+        protected static void CreateGeneratorInstance()
         {
             if (instance != null) return;
 
@@ -83,11 +84,13 @@ namespace ConstGen
         /// </summary>
         public static void ForceGenerate()
         {
-            CreateGeneratorInsance();
+            CreateGeneratorInstance();
 
             if ( File.Exists(FilePath) ) {
+#if UNITY_EDITOR
                 AssetDatabase.DeleteAsset( FilePath );
                 AssetDatabase.Refresh();
+#endif
             }
             else {
                 Debug.LogWarning( "[ " + instance.GetOutputFileName() + " ] Force Generate Failed, trying to delete an non existent file" );                
@@ -107,6 +110,7 @@ namespace ConstGen
                 ConstGenSettings cgs = ConstantGenerator.GetSettingsFile();
                 instance.regenerateOnMissing = cgs.regenerateOnMissing;
                 instance.updateOnReload = cgs.updateOnReload;
+                instance.indentifierFormat = cgs.indentifierFormat;
 
                 propertyCaching();
                 successful = true;

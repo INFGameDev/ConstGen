@@ -17,7 +17,7 @@ namespace ConstGen
         [InitializeOnLoadMethod]
         private static void Initialize()
         {
-            CreateGeneratorInsance();
+            CreateGeneratorInstance();
 
             if ( !RetrieveSettings( ()=> instance.oldProperties = ConstantGenerator.GetSettingsFile()._SCENES ) )
                 return; 
@@ -30,7 +30,7 @@ namespace ConstGen
         /// </summary>
         public static void Generate()
         {
-            CreateGeneratorInsance();
+            CreateGeneratorInstance();
             instance.newProperties = instance.RetriveValues();
 
             // store the new properties to SO
@@ -52,7 +52,7 @@ namespace ConstGen
                         var tail = property.Substring(property.LastIndexOf('/') + 1);
                         var result = tail.Substring(0, tail.LastIndexOf('.'));
 
-                        content.WriteConstant( indentCount, DT.Int, _ConstGen.MakeIdentifier(result), z.ToString() );
+                        content.WriteConstant( indentCount, DT.Int, _ConstGen.CreateIdentifier(result), z.ToString() );
                         z++;
                     }
                 }

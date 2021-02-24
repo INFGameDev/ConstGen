@@ -17,7 +17,7 @@ namespace ConstGen
         [InitializeOnLoadMethod]
         private static void Initialize()
         {
-            CreateGeneratorInsance();
+            CreateGeneratorInstance();
 
             if ( !RetrieveSettings( ()=> instance.oldProperties = ConstantGenerator.GetSettingsFile()._ANIMLAYERS ) )
                 return; 
@@ -30,7 +30,7 @@ namespace ConstGen
         /// </summary>
         public static void Generate()
         {
-            CreateGeneratorInsance();
+            CreateGeneratorInstance();
             instance.newProperties = instance.RetriveValues();
 
             // store the new properties to SO
@@ -48,7 +48,7 @@ namespace ConstGen
                     foreach (ConstGenSettings.LayersCTRLR ctlr in instance.newProperties)
                     {
                         // write layers animator header group
-                        string animatorName = string.Format( ConstantGenerator.ClassFormat, _ConstGen.MakeIdentifier(ctlr.name) );
+                        string animatorName = string.Format( ConstantGenerator.ClassFormat, _ConstGen.CreateIdentifier(ctlr.name) );
                         using (new CurlyBrackets(content, animatorName ,indentCount))
                         {
                             int layerIndex = 0;
@@ -56,7 +56,7 @@ namespace ConstGen
                             {
                                 content.WriteConstant( 
                                     indentCount, DT.Int, 
-                                    _ConstGen.MakeIdentifier(layer), 
+                                    _ConstGen.CreateIdentifier(layer), 
                                     layerIndex.ToString() 
                                 );
                                 

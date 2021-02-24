@@ -17,12 +17,14 @@ namespace ConstGen
         [InitializeOnLoadMethod]
         private static void Initialize()
         {
-            CreateGeneratorInsance();
+            CreateGeneratorInstance();
 
             if ( !RetrieveSettings( ()=> instance.oldProperties = ConstantGenerator.GetSettingsFile()._LAYERS ) )
                 return; 
 
             CheckForRegenOrUpdate( ()=> Generate() );
+
+
         }
 
         /// <summary>
@@ -30,7 +32,7 @@ namespace ConstGen
         /// </summary>
         public static void Generate()
         {
-            CreateGeneratorInsance();
+            CreateGeneratorInstance();
             instance.newProperties = instance.RetriveValues();
 
             // store the new properties to SO
@@ -48,7 +50,7 @@ namespace ConstGen
                     foreach (string property in instance.newProperties)
                     {
                         int layerIndex = LayerMask.NameToLayer(_ConstGen.EscapeDoubleQuote(property));
-                        content.WriteConstant( indentCount, DT.Int,  _ConstGen.MakeIdentifier(property), layerIndex.ToString() );
+                        content.WriteConstant( indentCount, DT.Int,  _ConstGen.CreateIdentifier(property), layerIndex.ToString() );
                     }
                 }
             );

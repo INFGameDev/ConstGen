@@ -17,7 +17,7 @@ namespace ConstGen
         [InitializeOnLoadMethod]
         private static void Initialize()
         {
-            CreateGeneratorInsance();
+            CreateGeneratorInstance();
 
             if ( !RetrieveSettings( ()=> instance.oldProperties = ConstantGenerator.GetSettingsFile()._ANIMPARAMS ) )
                 return; 
@@ -30,7 +30,7 @@ namespace ConstGen
         /// </summary>
         public static void Generate()
         {
-            CreateGeneratorInsance();
+            CreateGeneratorInstance();
             instance.newProperties = instance.RetriveValues();
 
             // store the new properties to SO
@@ -48,7 +48,7 @@ namespace ConstGen
                     foreach (ConstGenSettings.ParamsCTRLR ctrlr in instance.newProperties)
                     {
                         // write animator owner header group of the parameters
-                        string animatorName = string.Format( ConstantGenerator.ClassFormat, _ConstGen.MakeIdentifier(ctrlr.name) );
+                        string animatorName = string.Format( ConstantGenerator.ClassFormat, _ConstGen.CreateIdentifier(ctrlr.name) );
                         using (new CurlyBrackets(content, animatorName, indentCount))
                         {
                             // write parameters
@@ -56,7 +56,7 @@ namespace ConstGen
                             {
                                 content.WriteConstant( 
                                     indentCount, 
-                                    DT.String, _ConstGen.MakeIdentifier(parameter), 
+                                    DT.String, _ConstGen.CreateIdentifier(parameter), 
                                     _ConstGen.EscapeDoubleQuote(parameter) 
                                 );
                             }

@@ -12,14 +12,109 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c77c82a2a368e16499f3850135cca04a, type: 3}
   m_Name: ConstGenSettings
   m_EditorClassIdentifier: 
-  regenerateOnMissing: 1
+  regenerateOnMissing: 0
   updateOnReload: 0
-  _LAYERS: []
-  _TAGS: []
-  _SORTINGLAYERS: []
-  _SCENES: []
-  _SHADERPROPS: []
-  _ANIMPARAMS: []
-  _ANIMLAYERS: []
-  _ANIMSTATES: []
-  _NAVAREAS: []
+  closeOnGenerate: 1
+  indentifierFormat: 1
+  _LAYERS:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - Water
+  - UI
+  - one
+  - two
+  - three
+  - qwe
+  - b
+  - qweweq
+  - poi
+  - Enemy
+  _TAGS:
+  - Untagged
+  - Respawn
+  - Finish
+  - EditorOnly
+  - MainCamera
+  - Player
+  - GameController
+  - Enemy
+  _SORTINGLAYERS:
+  - Default
+  _SCENES:
+  - Assets/Scenes/SampleScene.unity
+  - Assets/Scenes/SomeScene.unity
+  _SHADERPROPS:
+  - name: GunShader
+    properties:
+    - _Color
+    - _AmmoIndicator
+    - _MainTex
+    - _Glossiness
+    - _Metallic
+  - name: DistanceFieldSSD
+    properties:
+    - _FaceColor
+    - _FaceDilate
+    - _OutlineColor
+    - _OutlineWidth
+    - _OutlineSoftness
+    - _UnderlayColor
+    - _UnderlayOffsetX
+    - _UnderlayOffsetY
+    - _UnderlayDilate
+    - _UnderlaySoftness
+    - _WeightNormal
+    - _WeightBold
+    - _ShaderFlags
+    - _ScaleRatioA
+    - _ScaleRatioB
+    - _ScaleRatioC
+    - _MainTex
+    - _TextureWidth
+    - _TextureHeight
+    - _GradientScale
+    - _ScaleX
+    - _ScaleY
+    - _PerspectiveFilter
+    - _Sharpness
+    - _VertexOffsetX
+    - _VertexOffsetY
+  _ANIMPARAMS:
+  - name: Player
+    parameters:
+    - XMove
+    - ZMove
+    - OnGround
+    - TurningSPeed
+    - IsCrouching
+    - TriggerJump
+    - TriggerShoot
+    - IsReloading
+  _ANIMLAYERS:
+  - name: Player
+    layers:
+    - Base Layer
+  _ANIMSTATES:
+  - name: Player
+    animLayers:
+    - name: Base Layer
+      animStates:
+      - name: New State
+        tag: 
+  _NAVAREAS:
+  - Walkable
+  - Not Walkable
+  - Jump
+  _INPUTAXES:
+  - Horizontal
+  - Vertical
+  - Fire1
+  - Fire2
+  - Fire3
+  - Jump
+  - Mouse X
+  - Mouse Y
+  - Mouse ScrollWheel
+  - Submit
+  - Cancel

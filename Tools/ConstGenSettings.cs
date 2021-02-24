@@ -5,8 +5,16 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ConstGenSettings", menuName = "Const Generator Setting")]
 public class ConstGenSettings : ScriptableObject
 {
+    public enum IndentifierFormat
+    {
+        Under_Score_Divider,
+        PascalCaseNoDivider
+    }
+
     [ReadOnly] public bool regenerateOnMissing;
     [ReadOnly] public bool updateOnReload;
+    [ReadOnly] public bool closeOnGenerate;
+    [ReadOnly] public IndentifierFormat indentifierFormat;
     // -----------------------------------------------------------------------------
     [ReadOnly] public List<string> _LAYERS = new List<string>();
     [ReadOnly] public List<string> _TAGS = new List<string>();
@@ -86,4 +94,5 @@ public class ConstGenSettings : ScriptableObject
     [ReadOnly] public List<StatesCTRLR> _ANIMSTATES;
     // -----------------------------------------------------------------------------
     [ReadOnly] public List<string> _NAVAREAS = new List<string>();
+    [ReadOnly] public List<string> _INPUTAXES = new List<string>();
 }

@@ -17,7 +17,7 @@ namespace ConstGen
         [InitializeOnLoadMethod]
         private static void Initialize()
         {
-            CreateGeneratorInsance();
+            CreateGeneratorInstance();
 
             if ( !RetrieveSettings( ()=> instance.oldProperties = ConstantGenerator.GetSettingsFile()._ANIMSTATES ) )
                 return; 
@@ -30,7 +30,7 @@ namespace ConstGen
         /// </summary>
         public static void Generate()
         {
-            CreateGeneratorInsance();
+            CreateGeneratorInstance();
             instance.newProperties = instance.RetriveValues();
 
             // store the new properties to SO
@@ -50,7 +50,7 @@ namespace ConstGen
                     {
                         // cache current animator 
                         ConstGenSettings.StatesCTRLR sttCTRLR = instance.newProperties[i];
-                        string ctrlrName = string.Format( ConstantGenerator.ClassFormat, _ConstGen.MakeIdentifier(sttCTRLR.name) );
+                        string ctrlrName = string.Format( ConstantGenerator.ClassFormat, _ConstGen.CreateIdentifier(sttCTRLR.name) );
                         
                         // write animator name header
                         using ( new CurlyBrackets(content, ctrlrName, indentCount) )
@@ -60,7 +60,7 @@ namespace ConstGen
                             {
                                 // cache current layer
                                 ConstGenSettings.AnimLayer animLayer = sttCTRLR.animLayers[i2];
-                                string layerName = string.Format( ConstantGenerator.ClassFormat+"_L", _ConstGen.MakeIdentifier(animLayer.name) );
+                                string layerName = string.Format( ConstantGenerator.ClassFormat+"_L", _ConstGen.CreateIdentifier(animLayer.name) );
 
                                 // write layer group header name
                                 using ( new CurlyBrackets( content, layerName, indentCount ) )
@@ -70,7 +70,7 @@ namespace ConstGen
                                     {
                                         // cache current state
                                         ConstGenSettings.AnimState state_ = animLayer.animStates[i3];
-                                        string stateName = string.Format(  ConstantGenerator.ClassFormat+"_S", _ConstGen.MakeIdentifier(state_.name) );
+                                        string stateName = string.Format(  ConstantGenerator.ClassFormat+"_S", _ConstGen.CreateIdentifier(state_.name) );
                                         
                                         // write state name group at header
                                         using ( new CurlyBrackets( content, stateName, indentCount ) )

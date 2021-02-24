@@ -7,23 +7,22 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
-using UnityEngine.AI;
 
 namespace ConstGen
 {
-    public class NavAreasGen : GeneratorBase<NavAreasGen, string>
+    public class InputAxesGen : GeneratorBase<InputAxesGen, string>
     {
-        private const string FILENAME = "_NAVAREAS"; 
+        private const string FILENAME = "_INPUTAXES";
 
         [InitializeOnLoadMethod]
         private static void Initialize()
         {
             CreateGeneratorInstance();
 
-            if ( !RetrieveSettings( ()=> instance.oldProperties = ConstantGenerator.GetSettingsFile()._NAVAREAS ) )
+            if ( !RetrieveSettings( ()=> instance.oldProperties = ConstantGenerator.GetSettingsFile()._INPUTAXES ) )
                 return; 
 
-             CheckForRegenOrUpdate( ()=> Generate() );
+            CheckForRegenOrUpdate( ()=> Generate() );
         }
 
         /// <summary>
@@ -35,8 +34,8 @@ namespace ConstGen
             instance.newProperties = instance.RetriveValues();
 
             // store the new properties to SO
-            ConstantGenerator.GetSettingsFile()._NAVAREAS.Clear();
-            ConstantGenerator.GetSettingsFile()._NAVAREAS = instance.newProperties;
+            ConstantGenerator.GetSettingsFile()._INPUTAXES.Clear();
+            ConstantGenerator.GetSettingsFile()._INPUTAXES = instance.newProperties;
 
             // set SO to be dirty to be saved
             EditorUtility.SetDirty( ConstantGenerator.GetSettingsFile() );
@@ -48,9 +47,11 @@ namespace ConstGen
 
                     foreach (string property in instance.newProperties)
                     {
-                        content.WriteConstant( indentCount, 
-                            DT.Int, _ConstGen.CreateIdentifier(property), 
-                            NavMesh.GetAreaFromName( _ConstGen.EscapeDoubleQuote(property) ).ToString() );                                
+                        content.WriteConstant( 
+                            indentCount, 
+                            DT.String, _ConstGen.CreateIdentifier( property ), 
+                            _ConstGen.EscapeDoubleQuote( property ) 
+                        );
                     }
                 }
             );
@@ -61,22 +62,38 @@ namespace ConstGen
             if (Application.isPlaying) return;
 
             instance.newProperties = RetriveValues();
+
             List<string> differences = instance.newProperties.Except( instance.oldProperties ).ToList();
 
             if (differences.Count > 0 || instance.newProperties.Count != instance.oldProperties.Count)
                 Generate();
         }
 
-        protected override string GetOutputFileName()
-        {
+        protected override string GetOutputFileName() {
             return FILENAME;
         }
 
         protected override List<string> RetriveValues()
         {
-            return GameObjectUtility.GetNavMeshAreaNames().ToList();
+			List<string> AxisInputs = new List<string>();
+			SerializedObject InputManagerSO = new SerializedObject(AssetDatabase.LoadAllAssetsAtPath("ProjectSettings/InputManager.asset")[0]);
+			SerializedProperty axesProperty = InputManagerSO.FindProperty("m_Axes");
+
+			axesProperty.Next(true);
+			axesProperty.Next(true);
+
+			while ( axesProperty.Next(false) )
+            {
+				SerializedProperty axis = axesProperty.Copy();
+				axis.Next(true);
+
+				if ( !AxisInputs.Contains(axis.stringValue) )
+					AxisInputs.Add(axis.stringValue);
+			}
+
+			return AxisInputs;
         }
-    }
+    }    
 }
 
 

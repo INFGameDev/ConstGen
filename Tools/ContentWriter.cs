@@ -100,7 +100,7 @@ namespace ConstGen
         String,
         Float,
         Char,
-        Double
+        Double,
     }
 }
 

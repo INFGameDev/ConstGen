@@ -17,7 +17,7 @@ namespace ConstGen
         [InitializeOnLoadMethod]
         private static void Initialize()
         {
-            CreateGeneratorInsance();
+            CreateGeneratorInstance();
 
             if ( !RetrieveSettings( ()=> instance.oldProperties = ConstantGenerator.GetSettingsFile()._TAGS ) )
                 return;
@@ -30,7 +30,7 @@ namespace ConstGen
         /// </summary>
         public static void Generate()
         {
-            CreateGeneratorInsance();
+            CreateGeneratorInstance();
             instance.newProperties = instance.RetriveValues();
 
             // store the new properties to SO
@@ -48,7 +48,7 @@ namespace ConstGen
                     foreach (string property in instance.newProperties)
                     {
                         content.WriteConstant( indentCount, 
-                            DT.String, _ConstGen.MakeIdentifier(property), 
+                            DT.String, _ConstGen.CreateIdentifier(property), 
                             _ConstGen.EscapeDoubleQuote(property) 
                         ); 
                     }

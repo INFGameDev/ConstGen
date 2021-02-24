@@ -209,66 +209,76 @@ namespace ConstGen
 
         static List<ConstGenSettings.Shader_> RetriveValues()
         {
-            List<ConstGenSettings.Shader_> shaders_ = new List<ConstGenSettings.Shader_>();
-            int duplicateCount = 1;
+            // to store the duplicated shader names and how many duplicates are there
+            Dictionary<string,int> duplicates = new Dictionary<string, int>();
+            List<ConstGenSettings.Shader_> shaderList = new List<ConstGenSettings.Shader_>();
 
             // find shaders
-            string[] shadersPath = AssetDatabase.FindAssets("t:shader");
+            string[] shadersGUIDPath = AssetDatabase.FindAssets("t:shader");
             
-            foreach (string path in shadersPath)
+            foreach (string path in shadersGUIDPath)
             {
                 // ====================================================================
                 // get shader and it's path
                 string shaderPath = AssetDatabase.GUIDToAssetPath(path);
-                Shader shader = AssetDatabase.LoadAssetAtPath<Shader>(shaderPath);
+                Shader shaderFile = AssetDatabase.LoadAssetAtPath<Shader>(shaderPath);
 
-                if (shader == null) continue;
+                if (shaderFile == null) continue;
                 // ====================================================================
                 ConstGenSettings.Shader_ shader_ = new ConstGenSettings.Shader_();
                 List<string> propertyNames = new List<string>();
 
                 // remove shader path from shader name
-                int index = shader.name.LastIndexOf( '/' );
-                StringBuilder name_ = new StringBuilder(); 
-                name_.Append(shader.name.Remove( 0, index+1 ));
+                int index = shaderFile.name.LastIndexOf( '/' );
+                StringBuilder shaderName = new StringBuilder(); 
+                shaderName.Append(shaderFile.name.Remove( 0, index+1 ));
 
                 // remove any characters not okay for variable naming
-                shader_.name = generator.MakeIdentifier( name_.ToString() );
+                shader_.name = generator.CreateIdentifier( shaderName.ToString() );
                 // ====================================================================
 
-                int propertiesCount = ShaderUtil.GetPropertyCount(shader);
+                int propertiesCount = ShaderUtil.GetPropertyCount(shaderFile);
                 if ( propertiesCount == 0 ) 
                     continue;
 
                 // loop through shader properties and cache it to propertyNames
                 for (int i = 0; i < propertiesCount; i++)
                 {
-                    string propertyName = ShaderUtil.GetPropertyName(shader, i);
+                    string propertyName = ShaderUtil.GetPropertyName(shaderFile, i);
                     propertyNames.Add( propertyName );
                 }
 
                 // before adding the new shader to the list check first if it has conflicting names
-                foreach (ConstGenSettings.Shader_ s in shaders_ )
+                foreach (ConstGenSettings.Shader_ s in shaderList )
                 {
+                    // if it has
                     if ( s.name == shader_.name ) 
                     {
-                        // add duplication identifier
-                        shader_.name += "_D" + duplicateCount;
-                        duplicateCount++;
+                        // check the list  of duplicates if it's already added in there
+                        if ( duplicates.ContainsKey(shader_.name) )
+                        {
+                            // if it is increment the duplicates count and add the duplicate count
+                            // to the end of the shader name
+                            duplicates[shader_.name]++;
+                            shader_.name += "_D" + duplicates[shader_.name];
+                        } 
+                        else
+                        {
+                            duplicates.Add( shader_.name, 1 );
+                            shader_.name += "_D1";
+                        }
+
                         break;
                     }
                 }
 
                 // remove any duplicate shader properties and store it in shaderData.properties
                 shader_.properties = propertyNames.Distinct().ToList();
-                shaders_.Add( shader_ );
+                shaderList.Add( shader_ );
             }
 
-            return shaders_;
+            return shaderList;
         }
-
-
-
 
         private static void GenerateCode()
         {   
@@ -293,15 +303,15 @@ namespace ConstGen
                         foreach (ConstGenSettings.Shader_ sd in instance.newProperties)
                         {
                             // write shader header name group
-                            content.WriteIndentedFormatLine(indentCount, "public static class {0}", generator.MakeIdentifier(sd.name));
+                            content.WriteIndentedFormatLine(indentCount, "public static class {0}", generator.CreateIdentifier(sd.name));
                             using (new CurlyBrackets(content, indentCount))
                             {
                                 foreach (string propertyName in sd.properties)
                                 {
                                     // write properties
                                     content.WriteIndentedFormatLine(indentCount, 
-                                        "public const string _{0} = \"{1}\";", 
-                                            generator.MakeIdentifier(propertyName).Remove(0,1), 
+                                        "public const string {0} = \"{1}\";", 
+                                            generator.CreateIdentifier(propertyName).Remove(0,1), 
                                                 generator.EscapeDoubleQuote(propertyName));
                                 }
                             }
@@ -321,9 +331,3 @@ namespace ConstGen
         }
     }
 }
-
-
-
-
-
-
