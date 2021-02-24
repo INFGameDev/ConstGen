@@ -4,6 +4,8 @@
 
 - - - -
 
+[ReadMe is being Updated and currently incomplete]
+
 # Const Generator
 Unity Constants Generator
 
@@ -48,11 +50,13 @@ Plus you got some of that neat pop up suggestions on other related constant prop
 - [x] Layers
 - [x] Tags
 - [x] Sorting Layers
+- [x] Scenes
 - [x] Shader Properties
 - [x] Animator Controller Parameters
 - [x] Animator Controller Layers
 - [x] Animator Controller States
-- [x] Nav Mesh Areas <br/>
+- [x] Nav Mesh Areas
+- [x] Input Axes <br/>
 
 ### ( Constant Generator Creation ) ###
 
@@ -70,6 +74,19 @@ Access the ConstGen window in the Main Menu <br/>
 ![generating constants](https://github.com/INFGameDev/Project-ReadMe-Images/blob/master/ConstGen/GeneratingConstants.png)
 
 ### Settings ###
+
+**[Close On Generate]** - You can treat the window like a pop up that when everytime you generate the window will close automatically or leave this option as off and you dock
+ the window and generate files without it closing.
+ 
+ <br/>
+ 
+ ![generator creation](https://github.com/INFGameDev/Project-ReadMe-Images/blob/master/ConstGen/IdentifierFormat.png) <br/>
+**[Indentifier Format]** - Defines how the the class names of the generated constants are formatted
+
+- Under_Score_Divider
+  - Filters the whitespaces and invalid charaters of the class name into underscores.
+- Pascal Case No Divider
+  - Removes the whitespaces and invalid charaters of the class and merge into a pascal case naming format.
 
 **[ReGen On Missing]** - Sets the generator to generate it's constants file if it detected none exists.
 
