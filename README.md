@@ -28,11 +28,11 @@ Because screw this! (╯°□°）╯︵ `;(ϛ ',,ǝʌoWX,,)ʇɐolℲʇǝS˙ɹo�
 
 <br/>
 
-Magic strings are considered bad as they are very error-prone, they are non-performant and slow as no optimization is applied on them by the compiler as they are dynamically changing, the more you use them the more it will add up that will not only cause performance problems but will also make it harder to fix the bugs on your code.
+Magic strings are considered bad as they are very error-prone, they are non-performant and slow as no optimization is applied on them by the compiler as they are dynamically changing. The more you use them the more it will add up that will not only cause performance problems but will also make it harder to fix the bugs on your code.
 
 So instead so we use constants, by this way we are fixing a variable's value so that it can be optimized, not only that it also eliminates the error of writing a typo in which the compiler has no whatsoever idea but will instead propagate an error at runtime causing annoying problems and bugs. 
 
-In here instead of typing out the string directly as an argument to a method, the constant property can be used. 
+In here instead of typing out the string directly as an argument to a method, the constant property is used.
 
 ![usage example](https://github.com/INFGameDev/Project-ReadMe-Images/blob/master/ConstGen/Usage_Example.png)
 
@@ -49,15 +49,15 @@ Plus you got some of that neat pop up suggestions on other related constant prop
 - [x] Tags
 - [x] Sorting Layers
 - [x] Scenes
+- [x] Nav Mesh Areas
+- [x] Input Axes
 - [x] Shader Properties
 - [x] Animator Controller Parameters
 - [x] Animator Controller Layers
-- [x] Animator Controller States
-- [x] Nav Mesh Areas
-- [x] Input Axes <br/>
+- [x] Animator Controller States <br/>
 
-### ( Creating Custom Generators ) ###
-#### ConstGen can also create custom generator scripts ####
+### ( Custom Generators ) ###
+#### ConstGen can also create custom generator for generating constants ####
 ![generator creation](https://github.com/INFGameDev/Project-ReadMe-Images/blob/master/ConstGen/GeneratorCreation.png)
 
 ### ( Generating Enums ) ###
@@ -75,27 +75,28 @@ Access the ConstGen window in the Main Menu <br/>
 
 ### | Settings | ###
 
-**[Close On Generate]** - You can treat the window like a pop up that when everytime you generate the window will close automatically or leave this option as off and you dock
- the window and generate files without it closing.
+**[Close On Generate]** - You can treat the window like a pop up that when everytime you generate, the window will close automatically or leave this option off and you can dock the window and generate files without it closing.
  
-![generator creation](https://github.com/INFGameDev/Project-ReadMe-Images/blob/master/ConstGen/IdentifierFormat.png) <br/>
+![indentifier](https://github.com/INFGameDev/Project-ReadMe-Images/blob/master/ConstGen/IdentifierFormat.png) <br/>
 **[Indentifier Format]** - Defines how the the class names of the generated constants are formatted.
 - Under_Score_Divider
-  - Filters the whitespaces and invalid charaters of the class name into underscores.
+  - Filters the whitespaces and invalid charaters of the class names into underscores.
 - Pascal Case No Divider
   - Removes the whitespaces and invalid charaters of the class and merge into a pascal case naming format.
 
 **[ReGen On Missing]** - Sets the generator to generate it's constants file if it detected none exists. <br/>
-NOTE: the [Force Generate] button depends on this setting as it will delete the constants file and let the generator create a new one.
+
+NOTE: [Force Generate] button depends on this setting as it will delete the constants file and let the generator create a new one.
 
 **[Update On Reload]** - Sets the generator to automatically generate/update it's constants file on editor recompile if any changes is detected within the unity editor, e.g adding new layers or deleting animator controller paramters. <br/>
+
 NOTE: All generator update checks are are done upon editor recompile so the generator won't trigger script generate and recompile every after little change you want on the editor constants. 
 
 ### | Generation | ###
 
-**[Generate]** - Updates the type of constants or generates the file is none is present.
+**[Generate]** - Updates the constants or generates the constants file of the generator if none is present.
 
-**[Force Generate]** - Deletes the file on the type of constants and let the generator regenerate a new one.
+**[Force Generate]** - Deletes the constants file and let the generator regenerate a new one.
 
 **[Generate ALL] & [Force Generate ALL]** - you know.....just like the generate & force generate buttons but instead triggers all generators.
 
@@ -108,16 +109,18 @@ NOTE: All generator update checks are are done upon editor recompile so the gene
 **Custom Generators** => Scripts/ConstGen Files/Custom Generators <br/>
 **Enums** (Default) => Scripts/ConstGen Files/Generated Enums <br/>
 
-NOTE: DO NOT move around the files inside the ConstGen folder as it will break how the generators look for the files it needed inside ConstGen Folder but you can move the ConstGen folder itself at any directory in the Assets. <br/>
+NOTE: DO NOT move around the files inside the ConstGen folder as it will break how the generators look for the files it needed inside ConstGen Folder BUT you can move the ConstGen folder itself at any directory in the assets. <br/>
+
 ANOTHER NOTE: Also DON'T change or move the folder of **Generated Constants** cause the generators look for that specific directory for the files inside when updating and generating files.
 
 AND ALSO ANOTHER ONE: In the event of for some reason the generated files has an error and [Force Generate] won't delete the file, you can manually delete the file itself in the it's folder with the **[ReGen On Missing]** turned on and the generator/s will try to generate a new file.
 
 
-### ( Creating Generators ) ###
+### ( Creating Custom Generators ) ###
 ![Creating generators](https://github.com/INFGameDev/Project-ReadMe-Images/blob/master/ConstGen/generator%20creation2.PNG)
 
-You can also create custom generator scripts like the ones ConstGen use to generate the constants properties through script.
+You can also create custom generator scripts like the ones ConstGen use to generate the constants properties through script. <br/>
+This this will generate a custom generator template that you can modify and get started on.
 
 **Generated Name** - Already self explanatory, this will also be the name of the generator script. <br/>
 **Output File Name** - The name of the generated file by the generator which is also the generated file's script name. <br/>
@@ -133,10 +136,7 @@ Import the `ConstGenConstants` namespace on which the constants are in and from 
 
 - - - -
 
-## Generating Enums Constants ##
-
-You can generate enums using ConstGen generator 
-
+## Generating Enum Constants ##
 ![Generating Enums](https://github.com/INFGameDev/Project-ReadMe-Images/blob/master/ConstGen/GeneratingEnums.PNG)
 
 `List<EnumConstant>` - This is the list where you will add all the enums you want to generate. <br/>
