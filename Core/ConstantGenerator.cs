@@ -1,15 +1,13 @@
-﻿using System.IO;
+﻿#if UNITY_EDITOR
+using System.IO;
 using System.Text;
 using UnityEngine;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
-
-#if UNITY_EDITOR
-    using UnityEditor;
-    using UnityEditorInternal;
-#endif
+using UnityEditor;
+using UnityEditorInternal;
 
 namespace ConstGen
 {
@@ -66,7 +64,6 @@ namespace ConstGen
             return "Assets/Scripts/ConstGen Files/Custom Generators/Editor";
         }
 
-#if UNITY_EDITOR
         public static ConstGenSettings GetSettingsFile()
         {
             string s = "/Core/ConstantGenerator.cs";
@@ -116,7 +113,6 @@ namespace ConstGen
             AssetDatabase.DeleteAsset( "Assets/Scripts/ConstGen Files/Generated Constants.meta" );
             AssetDatabase.Refresh();
         }
-#endif
 
         /// <summary>
         /// Generates the code file into target path
@@ -163,9 +159,9 @@ namespace ConstGen
                 Debug.LogException(e);
             }
 
-#if UNITY_EDITOR
+
             AssetDatabase.Refresh();
-#endif
+
         }
 
         private string UnderscoreIdentifier( string str )
@@ -266,3 +262,4 @@ namespace ConstGen
         // }
     }   
 }
+#endif

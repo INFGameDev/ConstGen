@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿#if UNITY_EDITOR
+using System.IO;
 using System.Text;
 using UnityEngine;
 using System;
@@ -168,3 +169,4 @@ namespace ConstGen
 #endregion GenerateCode Overload Methods ====================================================================
     }
 }
+#endif

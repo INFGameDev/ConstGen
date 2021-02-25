@@ -1,15 +1,14 @@
-﻿using System.IO;
+﻿#if UNITY_EDITOR
+using System.IO;
 using System.Text;
 using UnityEngine;
 using System;
 using System.Linq;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using UnityEditor;
+using UnityEditorInternal;
 
-#if UNITY_EDITOR
-    using UnityEditor;
-    using UnityEditorInternal;
-#endif
 
 namespace ConstGen
 {
@@ -89,11 +88,10 @@ namespace ConstGen
         {
             CreateGeneratorInstance();
 
-            if ( File.Exists(FilePath) ) {
-#if UNITY_EDITOR
+            if ( File.Exists(FilePath) ) 
+            {
                 AssetDatabase.DeleteAsset( FilePath );
                 AssetDatabase.Refresh();
-#endif
             }
             else {
                 Debug.LogWarning( "[ " + instance.GetOutputFileName() + " ] Force Generate Failed, trying to delete an non existent file" );                
@@ -168,5 +166,5 @@ namespace ConstGen
         }
     }
 }
-
+#endif
 
