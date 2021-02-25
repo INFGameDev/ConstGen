@@ -8,6 +8,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [1.4.3] - 2020-02-25
 
 ### Fixed
+- Fixed build failing because generators referencing code inside an editor preprocessor check is not found
+
+## [1.4.2] - 2020-02-25
+
+### Fixed
 - Added if UNITY_EDITOR conditional checks
 
 ## [1.4.1] - 2020-02-25
