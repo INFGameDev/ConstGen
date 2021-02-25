@@ -5,8 +5,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
-using UnityEditor;
-using UnityEditorInternal;
+
+#if UNITY_EDITOR
+    using UnityEditor;
+    using UnityEditorInternal;
+#endif
 
 namespace ConstGen
 {

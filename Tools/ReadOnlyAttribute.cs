@@ -1,5 +1,9 @@
 ﻿using UnityEngine;
-using UnityEditor;
+
+#if UNITY_EDITOR
+    using UnityEditor;
+    using UnityEditorInternal;
+#endif
 
 public class ReadOnlyAttribute : PropertyAttribute
 {

@@ -1,12 +1,15 @@
 ﻿using System.IO;
 using System.Text;
-using UnityEditor;
-using UnityEditorInternal;
 using UnityEngine;
 using System;
 using System.Linq;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+
+#if UNITY_EDITOR
+    using UnityEditor;
+    using UnityEditorInternal;
+#endif
 
 namespace ConstGen
 {
