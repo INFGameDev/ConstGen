@@ -30,7 +30,7 @@ namespace ConstGen
         protected static string FilePath { get { return string.Format(ConstantGenerator.FilePathFormat, 
            instance.outputPath, instance.outputFileName); } }
         
-        protected ConstGenSettings.IndentifierFormat indentifierFormat;
+        protected ConstGenSettings.IdentifierFormat identifierFormat;
         protected List<PropType> properties;
 #endregion Variables ==================================================================================
 

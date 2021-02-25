@@ -431,10 +431,10 @@ namespace ConstGen
             EGL.EndHorizontal();
 
             EGL.BeginHorizontal();
-                EGL.LabelField("Indentifier Format:", enumLabel, GL.Width( 145 ));
+                EGL.LabelField("Identifier Format:", enumLabel, GL.Width( 145 ));
 
-                settings.indentifierFormat = 
-                    (ConstGenSettings.IndentifierFormat)EGL.EnumPopup( settings.indentifierFormat, enumField );
+                settings.identifierFormat = 
+                    (ConstGenSettings.IdentifierFormat)EGL.EnumPopup( settings.identifierFormat, enumField );
             EGL.EndHorizontal();
 
             GUIStyle style = new GUIStyle( GUI.skin.button );

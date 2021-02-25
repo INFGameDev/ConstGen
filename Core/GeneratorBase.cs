@@ -31,7 +31,7 @@ namespace ConstGen
         
         protected bool regenerateOnMissing;
         protected bool updateOnReload;
-        protected ConstGenSettings.IndentifierFormat indentifierFormat;
+        protected ConstGenSettings.IdentifierFormat identifierFormat;
         protected List<PropType> oldProperties;
         protected List<PropType> newProperties;
         #endregion Variables ==================================================================================
@@ -111,7 +111,7 @@ namespace ConstGen
                 ConstGenSettings cgs = ConstantGenerator.GetSettingsFile();
                 instance.regenerateOnMissing = cgs.regenerateOnMissing;
                 instance.updateOnReload = cgs.updateOnReload;
-                instance.indentifierFormat = cgs.indentifierFormat;
+                instance.identifierFormat = cgs.identifierFormat;
 
                 propertyCaching();
                 successful = true;

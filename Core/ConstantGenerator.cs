@@ -186,21 +186,21 @@ namespace ConstGen
             if ( settings == null )
                 settings = GetSettingsFile();
 
-            string formattedIndentifier = string.Empty;
+            string formattedIdentifier = string.Empty;
 
-            if ( settings.indentifierFormat == ConstGenSettings.IndentifierFormat.Under_Score_Divider )
+            if ( settings.identifierFormat == ConstGenSettings.IdentifierFormat.Under_Score_Divider )
             {
-                formattedIndentifier = UnderscoreIdentifier( str );
+                formattedIdentifier = UnderscoreIdentifier( str );
             } 
             else 
             {
-                formattedIndentifier = PascalCaseNoSpaceIndentifier( str );
+                formattedIdentifier = PascalCaseNoSpaceIdentifier( str );
             }
 
-            return formattedIndentifier;
+            return formattedIdentifier;
         }
 
-        public string PascalCaseNoSpaceIndentifier( string str )
+        public string PascalCaseNoSpaceIdentifier( string str )
         {
             // turn all the unnecessary characters invalid for naming conventions to an underscore
             string validNaming = UnderscoreIdentifier( str );
@@ -254,7 +254,7 @@ namespace ConstGen
         //     return formated;
         // }
 
-        // public string NoSpaceIndentifier( string str )
+        // public string NoSpaceIdentifier( string str )
         // {
         //     string formattedString = UnderscoreIdentifier( str );
         //     formattedString = RemoveChars( formattedString,new char[] { '_', '-' } );

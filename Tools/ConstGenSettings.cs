@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ConstGenSettings", menuName = "Const Generator Setting")]
 public class ConstGenSettings : ScriptableObject
 {
-    public enum IndentifierFormat
+    public enum IdentifierFormat
     {
         Under_Score_Divider,
         PascalCaseNoDivider
@@ -14,7 +14,7 @@ public class ConstGenSettings : ScriptableObject
     [ReadOnly] public bool regenerateOnMissing;
     [ReadOnly] public bool updateOnReload;
     [ReadOnly] public bool closeOnGenerate;
-    [ReadOnly] public IndentifierFormat indentifierFormat;
+    [ReadOnly] public IdentifierFormat identifierFormat;
     // -----------------------------------------------------------------------------
     [ReadOnly] public List<string> _LAYERS = new List<string>();
     [ReadOnly] public List<string> _TAGS = new List<string>();
