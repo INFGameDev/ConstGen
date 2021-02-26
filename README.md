@@ -78,7 +78,7 @@ Access the ConstGen window in the Main Menu <br/>
 **[Close On Generate]** - You can treat the window like a pop up that when everytime you generate, the window will close automatically or leave this option off and you can dock the window and generate files without it closing.
  
 ![indentifier](https://github.com/INFGameDev/Project-ReadMe-Images/blob/master/ConstGen/IdentifierFormat.png) <br/>
-**[Indentifier Format]** - Defines how the the class names of the generated constants are formatted.
+**[Identifier Format]** - Defines how the the class names of the generated constants are formatted.
 - Under_Score_Divider
   - Filters the whitespaces and invalid charaters of the class names into underscores.
 - Pascal Case No Divider
