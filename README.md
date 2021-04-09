@@ -1,9 +1,3 @@
-- - - -
-
-#### If you like this asset, a donation of any value is very much appreciated [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/donate?hosted_button_id=RTBZPSYEFNUGG)
-
-- - - -
-
 # Const Generator 
 Unity Constants Generator 
 
