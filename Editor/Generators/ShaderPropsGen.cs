@@ -308,10 +308,17 @@ namespace ConstGen
                             {
                                 foreach (string propertyName in sd.properties)
                                 {
+                                    string shaderProperty = generator.CreateIdentifier(propertyName);
+                                    if ( shaderProperty.Substring(0, 1) == "_" )
+                                        shaderProperty = shaderProperty.Remove(0,1);
+
+                                    string firstLetter = shaderProperty.Substring(0,1).ToUpper();
+                                    shaderProperty = shaderProperty.Replace(firstLetter.ToLower(), firstLetter);
+
                                     // write properties
                                     content.WriteIndentedFormatLine(indentCount, 
                                         "public const string {0} = \"{1}\";", 
-                                            generator.CreateIdentifier(propertyName).Remove(0,1), 
+                                            shaderProperty, 
                                                 generator.EscapeDoubleQuote(propertyName));
                                 }
                             }

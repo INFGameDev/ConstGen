@@ -14,15 +14,1784 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   regenerateOnMissing: 1
   updateOnReload: 0
-  closeOnGenerate: 1
-  indentifierFormat: 0
-  _LAYERS: []
-  _TAGS: []
-  _SORTINGLAYERS: []
-  _SCENES: []
-  _SHADERPROPS: []
-  _ANIMPARAMS: []
-  _ANIMLAYERS: []
-  _ANIMSTATES: []
-  _NAVAREAS: []
-  _INPUTAXES: []
+  closeOnGenerate: 0
+  identifierFormat: 0
+  _LAYERS:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - Water
+  - UI
+  - PostProcessing
+  - Player
+  - Masked
+  - Stencil Mask
+  - Obstacles
+  - Item Pickups
+  - ItemPickupTrigger
+  - CrossHair
+  - Enemy
+  _TAGS:
+  - Untagged
+  - Respawn
+  - Finish
+  - EditorOnly
+  - MainCamera
+  - Player
+  - GameController
+  - Weapon
+  - Enemy
+  - Obstacle
+  - GunItem
+  _SORTINGLAYERS:
+  - Default
+  _SCENES:
+  - Assets/_Scenes/Intro.unity
+  - Assets/_Scenes/Main Menu.unity
+  - Assets/_Scenes/Prototyping 4.unity
+  _SHADERPROPS:
+  - name: Dissolve_Unity
+    properties:
+    - Vector1_C7E032C9
+    - Vector1_C27BF4A
+    - unity_Lightmaps
+    - unity_LightmapsInd
+    - unity_ShadowMasks
+  - name: DissovleDaniel
+    properties:
+    - Color_C8C9BFE2
+    - _NoiseScale
+    - _NoiseStrength
+    - _CutOffHeight
+    - _EdgeWidth
+    - _EdgeColor
+    - unity_Lightmaps
+    - unity_LightmapsInd
+    - unity_ShadowMasks
+  - name: Outline_Mask
+    properties:
+    - _ZTest
+    - _Color
+    - _BaseMap
+    - _BaseMapTiling
+    - _BaseMapOffset
+    - _NormalMap
+    - _NormalMapOffset
+    - _NormalMapStrength
+    - _EmissionColor
+    - _EmissionMap
+    - _Metallicness
+    - _MetallicMap
+    - _Smoothness
+    - _SmoothnessMap
+    - _Alpha
+    - _AOMap
+    - BOOLEAN_73FD9519
+  - name: Outline
+    properties:
+    - _ZTest
+    - _OutlineColor
+    - _OutlineWidth
+  - name: Outline_Mask_D1
+    properties:
+    - _ZTest
+    - _Color
+    - _BaseMap
+    - _BaseMapTiling
+    - _BaseMapOffset
+    - _NormalMap
+    - _NormalMapOffset
+    - _NormalMapStrength
+    - _EmissionColor
+    - _EmissionMap
+    - _Metallicness
+    - _MetallicMap
+    - _Smoothness
+    - _SmoothnessMap
+    - _Alpha
+    - _AOMap
+    - unity_Lightmaps
+    - unity_LightmapsInd
+    - unity_ShadowMasks
+    - BOOLEAN_73FD9519
+  - name: OutlineMask_URP
+    properties:
+    - _Color
+    - _BaseMap
+    - _BaseMapTiling
+    - _BaseMapOffset
+    - _NormalMap
+    - _NormalMapOffset
+    - _NormalMapStrength
+    - _EmissionColor
+    - _EmissionMap
+    - _Metallicness
+    - _MetallicMap
+    - _Smoothness
+    - _SmoothnessMap
+    - _Alpha
+    - _AOMap
+    - unity_Lightmaps
+    - unity_LightmapsInd
+    - unity_ShadowMasks
+    - BOOLEAN_73FD9519
+  - name: Outline_Mask_D2
+    properties:
+    - _ZTest
+    - _MainTex
+  - name: Graph_Mobile
+    properties:
+    - _MainTex
+    - _Color
+    - PixelSnap
+    - _GoodColor
+    - _CautionColor
+    - _CriticalColor
+    - _GoodThreshold
+    - _CautionThreshold
+  - name: Graph_Standard
+    properties:
+    - _MainTex
+    - _Color
+    - PixelSnap
+    - _GoodColor
+    - _CautionColor
+    - _CriticalColor
+    - _GoodThreshold
+    - _CautionThreshold
+  - name: Bitmap_Custom_Atlas
+    properties:
+    - _MainTex
+    - _FaceTex
+    - _FaceColor
+    - _VertexOffsetX
+    - _VertexOffsetY
+    - _MaskSoftnessX
+    - _MaskSoftnessY
+    - _ClipRect
+    - _Padding
+    - _StencilComp
+    - _Stencil
+    - _StencilOp
+    - _StencilWriteMask
+    - _StencilReadMask
+    - _ColorMask
+  - name: Bitmap
+    properties:
+    - _MainTex
+    - _Color
+    - _DiffusePower
+    - _VertexOffsetX
+    - _VertexOffsetY
+    - _MaskSoftnessX
+    - _MaskSoftnessY
+    - _ClipRect
+    - _StencilComp
+    - _Stencil
+    - _StencilOp
+    - _StencilWriteMask
+    - _StencilReadMask
+    - _ColorMask
+  - name: Bitmap_D1
+    properties:
+    - _MainTex
+    - _FaceTex
+    - _FaceColor
+    - _VertexOffsetX
+    - _VertexOffsetY
+    - _MaskSoftnessX
+    - _MaskSoftnessY
+    - _ClipRect
+    - _StencilComp
+    - _Stencil
+    - _StencilOp
+    - _StencilWriteMask
+    - _StencilReadMask
+    - _ColorMask
+  - name: Distance_Field_Overlay
+    properties:
+    - _FaceTex
+    - _FaceUVSpeedX
+    - _FaceUVSpeedY
+    - _FaceColor
+    - _FaceDilate
+    - _OutlineColor
+    - _OutlineTex
+    - _OutlineUVSpeedX
+    - _OutlineUVSpeedY
+    - _OutlineWidth
+    - _OutlineSoftness
+    - _Bevel
+    - _BevelOffset
+    - _BevelWidth
+    - _BevelClamp
+    - _BevelRoundness
+    - _LightAngle
+    - _SpecularColor
+    - _SpecularPower
+    - _Reflectivity
+    - _Diffuse
+    - _Ambient
+    - _BumpMap
+    - _BumpOutline
+    - _BumpFace
+    - _ReflectFaceColor
+    - _ReflectOutlineColor
+    - _Cube
+    - _EnvMatrixRotation
+    - _UnderlayColor
+    - _UnderlayOffsetX
+    - _UnderlayOffsetY
+    - _UnderlayDilate
+    - _UnderlaySoftness
+    - _GlowColor
+    - _GlowOffset
+    - _GlowInner
+    - _GlowOuter
+    - _GlowPower
+    - _WeightNormal
+    - _WeightBold
+    - _ShaderFlags
+    - _ScaleRatioA
+    - _ScaleRatioB
+    - _ScaleRatioC
+    - _MainTex
+    - _TextureWidth
+    - _TextureHeight
+    - _GradientScale
+    - _ScaleX
+    - _ScaleY
+    - _PerspectiveFilter
+    - _Sharpness
+    - _VertexOffsetX
+    - _VertexOffsetY
+    - _MaskCoord
+    - _ClipRect
+    - _MaskSoftnessX
+    - _MaskSoftnessY
+    - _StencilComp
+    - _Stencil
+    - _StencilOp
+    - _StencilWriteMask
+    - _StencilReadMask
+    - _ColorMask
+  - name: Distance_Field___Masking
+    properties:
+    - _FaceColor
+    - _FaceDilate
+    - _OutlineColor
+    - _OutlineWidth
+    - _OutlineSoftness
+    - _UnderlayColor
+    - _UnderlayOffsetX
+    - _UnderlayOffsetY
+    - _UnderlayDilate
+    - _UnderlaySoftness
+    - _WeightNormal
+    - _WeightBold
+    - _ShaderFlags
+    - _ScaleRatioA
+    - _ScaleRatioB
+    - _ScaleRatioC
+    - _MainTex
+    - _TextureWidth
+    - _TextureHeight
+    - _GradientScale
+    - _ScaleX
+    - _ScaleY
+    - _PerspectiveFilter
+    - _Sharpness
+    - _VertexOffsetX
+    - _VertexOffsetY
+    - _ClipRect
+    - _MaskSoftnessX
+    - _MaskSoftnessY
+    - _MaskTex
+    - _MaskInverse
+    - _MaskEdgeColor
+    - _MaskEdgeSoftness
+    - _MaskWipeControl
+    - _StencilComp
+    - _Stencil
+    - _StencilOp
+    - _StencilWriteMask
+    - _StencilReadMask
+    - _ColorMask
+  - name: Distance_Field_Overlay_D1
+    properties:
+    - _FaceColor
+    - _FaceDilate
+    - _OutlineColor
+    - _OutlineWidth
+    - _OutlineSoftness
+    - _UnderlayColor
+    - _UnderlayOffsetX
+    - _UnderlayOffsetY
+    - _UnderlayDilate
+    - _UnderlaySoftness
+    - _WeightNormal
+    - _WeightBold
+    - _ShaderFlags
+    - _ScaleRatioA
+    - _ScaleRatioB
+    - _ScaleRatioC
+    - _MainTex
+    - _TextureWidth
+    - _TextureHeight
+    - _GradientScale
+    - _ScaleX
+    - _ScaleY
+    - _PerspectiveFilter
+    - _Sharpness
+    - _VertexOffsetX
+    - _VertexOffsetY
+    - _ClipRect
+    - _MaskSoftnessX
+    - _MaskSoftnessY
+    - _StencilComp
+    - _Stencil
+    - _StencilOp
+    - _StencilWriteMask
+    - _StencilReadMask
+    - _ColorMask
+  - name: Distance_Field
+    properties:
+    - _FaceColor
+    - _FaceDilate
+    - _OutlineColor
+    - _OutlineWidth
+    - _OutlineSoftness
+    - _UnderlayColor
+    - _UnderlayOffsetX
+    - _UnderlayOffsetY
+    - _UnderlayDilate
+    - _UnderlaySoftness
+    - _WeightNormal
+    - _WeightBold
+    - _ShaderFlags
+    - _ScaleRatioA
+    - _ScaleRatioB
+    - _ScaleRatioC
+    - _MainTex
+    - _TextureWidth
+    - _TextureHeight
+    - _GradientScale
+    - _ScaleX
+    - _ScaleY
+    - _PerspectiveFilter
+    - _Sharpness
+    - _VertexOffsetX
+    - _VertexOffsetY
+    - _ClipRect
+    - _MaskSoftnessX
+    - _MaskSoftnessY
+    - _StencilComp
+    - _Stencil
+    - _StencilOp
+    - _StencilWriteMask
+    - _StencilReadMask
+    - _ColorMask
+  - name: Distance_Field__Surface_
+    properties:
+    - _FaceTex
+    - _FaceColor
+    - _FaceDilate
+    - _OutlineColor
+    - _OutlineTex
+    - _OutlineWidth
+    - _OutlineSoftness
+    - _GlowColor
+    - _GlowOffset
+    - _GlowInner
+    - _GlowOuter
+    - _GlowPower
+    - _WeightNormal
+    - _WeightBold
+    - _ShaderFlags
+    - _ScaleRatioA
+    - _ScaleRatioB
+    - _ScaleRatioC
+    - _MainTex
+    - _TextureWidth
+    - _TextureHeight
+    - _GradientScale
+    - _ScaleX
+    - _ScaleY
+    - _PerspectiveFilter
+    - _Sharpness
+    - _VertexOffsetX
+    - _VertexOffsetY
+  - name: Distance_Field__Surface__D1
+    properties:
+    - _FaceTex
+    - _FaceUVSpeedX
+    - _FaceUVSpeedY
+    - _FaceColor
+    - _FaceDilate
+    - _OutlineColor
+    - _OutlineTex
+    - _OutlineUVSpeedX
+    - _OutlineUVSpeedY
+    - _OutlineWidth
+    - _OutlineSoftness
+    - _Bevel
+    - _BevelOffset
+    - _BevelWidth
+    - _BevelClamp
+    - _BevelRoundness
+    - _BumpMap
+    - _BumpOutline
+    - _BumpFace
+    - _ReflectFaceColor
+    - _ReflectOutlineColor
+    - _Cube
+    - _EnvMatrixRotation
+    - _SpecColor
+    - _FaceShininess
+    - _OutlineShininess
+    - _GlowColor
+    - _GlowOffset
+    - _GlowInner
+    - _GlowOuter
+    - _GlowPower
+    - _WeightNormal
+    - _WeightBold
+    - _ShaderFlags
+    - _ScaleRatioA
+    - _ScaleRatioB
+    - _ScaleRatioC
+    - _MainTex
+    - _TextureWidth
+    - _TextureHeight
+    - _GradientScale
+    - _ScaleX
+    - _ScaleY
+    - _PerspectiveFilter
+    - _Sharpness
+    - _VertexOffsetX
+    - _VertexOffsetY
+  - name: Distance_Field_D1
+    properties:
+    - _FaceTex
+    - _FaceUVSpeedX
+    - _FaceUVSpeedY
+    - _FaceColor
+    - _FaceDilate
+    - _OutlineColor
+    - _OutlineTex
+    - _OutlineUVSpeedX
+    - _OutlineUVSpeedY
+    - _OutlineWidth
+    - _OutlineSoftness
+    - _Bevel
+    - _BevelOffset
+    - _BevelWidth
+    - _BevelClamp
+    - _BevelRoundness
+    - _LightAngle
+    - _SpecularColor
+    - _SpecularPower
+    - _Reflectivity
+    - _Diffuse
+    - _Ambient
+    - _BumpMap
+    - _BumpOutline
+    - _BumpFace
+    - _ReflectFaceColor
+    - _ReflectOutlineColor
+    - _Cube
+    - _EnvMatrixRotation
+    - _UnderlayColor
+    - _UnderlayOffsetX
+    - _UnderlayOffsetY
+    - _UnderlayDilate
+    - _UnderlaySoftness
+    - _GlowColor
+    - _GlowOffset
+    - _GlowInner
+    - _GlowOuter
+    - _GlowPower
+    - _WeightNormal
+    - _WeightBold
+    - _ShaderFlags
+    - _ScaleRatioA
+    - _ScaleRatioB
+    - _ScaleRatioC
+    - _MainTex
+    - _TextureWidth
+    - _TextureHeight
+    - _GradientScale
+    - _ScaleX
+    - _ScaleY
+    - _PerspectiveFilter
+    - _Sharpness
+    - _VertexOffsetX
+    - _VertexOffsetY
+    - _MaskCoord
+    - _ClipRect
+    - _MaskSoftnessX
+    - _MaskSoftnessY
+    - _StencilComp
+    - _Stencil
+    - _StencilOp
+    - _StencilWriteMask
+    - _StencilReadMask
+    - _ColorMask
+  - name: Sprite
+    properties:
+    - _MainTex
+    - _Color
+    - _StencilComp
+    - _Stencil
+    - _StencilOp
+    - _StencilWriteMask
+    - _StencilReadMask
+    - _ColorMask
+    - _ClipRect
+    - _UseUIAlphaClip
+  - name: Camera_Lit
+    properties:
+    - _Color
+    - _WireColor
+    - _WireSize
+  - name: Color_Unlit
+    properties:
+    - _Color
+  - name: Color_Unlit_Transparent
+    properties:
+    - _Color
+  - name: Unlit_Dashed_Line
+    properties:
+    - _Color
+    - _Thickness
+    - _DashFrequency
+  - name: Unlit_Line
+    properties:
+    - _Color
+    - _Thickness
+  - name: Vertex_Color_Unlit
+    properties:
+    - _MainTex
+  - name: Wires_Only
+    properties:
+    - _Color
+    - _Size
+  - name: DamageImpact
+    properties:
+    - Texture2D_1E57CD08
+    - Color_FEAE838
+    - Boolean_72FCAA81
+    - Vector1_BEE6D1E0
+    - Color_74F3C918
+    - unity_Lightmaps
+    - unity_LightmapsInd
+    - unity_ShadowMasks
+  - name: DissolveShader
+    properties:
+    - _Color
+    - _BaseMap
+    - _BaseMapTiling
+    - _BaseMapOffset
+    - _NormalMap
+    - _NormalMapOffset
+    - _NormalMapStrength
+    - _EmissionColor
+    - _EmissionMap
+    - _Metallicness
+    - _MetallicMap
+    - _Smoothness
+    - _SmoothnessMap
+    - _AOMap
+    - _NoiseScale
+    - _DissolveAmount
+    - _EdgeWidth
+    - _EdgeColor
+    - _Emission
+    - unity_Lightmaps
+    - unity_LightmapsInd
+    - unity_ShadowMasks
+  - name: GridShader
+    properties:
+    - Color_39347459
+    - Color_6B3A8533
+    - Vector2_DFCF936C
+    - Vector2_96B9C04A
+    - Vector1_721B8BC5
+    - Vector1_B8554FCD
+    - Vector1_ACD0DFE6
+    - Vector1_58698441
+    - unity_Lightmaps
+    - unity_LightmapsInd
+    - unity_ShadowMasks
+  - name: Lit_SG
+    properties:
+    - _Color
+    - _BaseMap
+    - _BaseMapTiling
+    - _BaseMapOffset
+    - _NormalMap
+    - _NormalMapOffset
+    - _NormalMapStrength
+    - _EmissionColor
+    - _EmissionMap
+    - _Metallicness
+    - _MetallicMap
+    - _Smoothness
+    - _SmoothnessMap
+    - _AOMap
+    - _Alpha
+    - AlphaClip
+    - unity_Lightmaps
+    - unity_LightmapsInd
+    - unity_ShadowMasks
+    - BOOLEAN_73FD9519
+  - name: NewSurfaceShader
+    properties:
+    - _Color
+    - _MainTex
+    - _Glossiness
+    - _Metallic
+  - name: BoneHandles
+    properties:
+    - _Color
+  - name: RigEffector
+    properties:
+    - _Color
+    - _Dither
+    - _HandleZTest
+  - name: UnlitTransparentColored
+    properties:
+    - _Color
+  - name: Compositor
+    properties:
+    - _Tex0MainView
+    - _Tex0Shadows
+    - _ShadowColor0
+    - _Tex1MainView
+    - _Tex1Shadows
+    - _ShadowColor1
+    - _CompositingParams
+    - _CompositingParams2
+    - _FirstViewColor
+    - _SecondViewColor
+    - _GizmoPosition
+    - _GizmoZoneCenter
+    - _GizmoSplitPlane
+    - _GizmoSplitPlaneOrtho
+    - _GizmoLength
+    - _GizmoThickness
+    - _GizmoCircleRadius
+    - _GizmoRenderMode
+    - _GetBlendFactorMaxGizmoDistance
+    - _BlendFactorCircleRadius
+    - _ScreenRatio
+    - _ToneMapCoeffs1
+    - _ToneMapCoeffs2
+  - name: CubeToLatlong
+    properties:
+    - _MainTex
+    - _CubeToLatLongParams
+    - _WindowParams
+  - name: CopyStd
+    properties:
+    - _MainTex
+  - name: CopyStdFromDoubleWide
+    properties:
+    - _MainTex
+  - name: CopyStdFromTexArray
+    properties:
+    - _MainTex
+  - name: ConvertToLog
+    properties:
+    - _MainTex
+  - name: Diffuse_Texture_Blend
+    properties:
+    - _FirstTex
+    - _SecondTex
+    - _ThirdTex
+    - _FourthTex
+  - name: Diffuse_Vertex_Color
+    properties:
+    - _MainTex
+  - name: FaceHighlight
+    properties:
+    - _Color
+    - _Dither
+    - _HandleZTest
+  - name: LineBillboard
+    properties:
+    - _Color
+    - _Scale
+    - _HandleZTest
+  - name: LineBillboardMetal
+    properties:
+    - _Scale
+    - _Color
+    - _HandleZTest
+    - _HandleZWrite
+  - name: PointBillboard
+    properties:
+    - _Color
+    - _Scale
+    - _HandleZTest
+  - name: Reference_Unlit
+    properties:
+    - _MainTex
+  - name: ScrollHighlight
+    properties:
+    - _Highlight
+    - _Base
+    - _Speed
+    - _EditorTime
+    - _LineDistance
+  - name: SmoothingPreview
+    properties:
+    - _Opacity
+  - name: Standard_Vertex_Color
+    properties:
+    - _Color
+    - _MainTex
+    - _Glossiness
+    - _Metallic
+  - name: TransparentOverlay
+    properties:
+    - _MainTex
+  - name: Unlit_Solid_Color
+    properties:
+    - _Color
+  - name: VertexShader
+    properties:
+    - _Scale
+    - _Color
+    - _HandleZTest
+  - name: BlitNoAlpha
+    properties:
+    - _MainTex
+  - name: Distance_Field_SSD
+    properties:
+    - _FaceColor
+    - _FaceDilate
+    - _OutlineColor
+    - _OutlineWidth
+    - _OutlineSoftness
+    - _UnderlayColor
+    - _UnderlayOffsetX
+    - _UnderlayOffsetY
+    - _UnderlayDilate
+    - _UnderlaySoftness
+    - _WeightNormal
+    - _WeightBold
+    - _ShaderFlags
+    - _ScaleRatioA
+    - _ScaleRatioB
+    - _ScaleRatioC
+    - _MainTex
+    - _TextureWidth
+    - _TextureHeight
+    - _GradientScale
+    - _ScaleX
+    - _ScaleY
+    - _PerspectiveFilter
+    - _Sharpness
+    - _VertexOffsetX
+    - _VertexOffsetY
+  - name: ArnoldStandardSurface
+    properties:
+    - _BASE_COLOR
+    - _BASE_COLOR_MAP
+    - _METALNESS
+    - _METALNESS_MAP
+    - _SPECULAR_COLOR
+    - _SPECULAR_COLOR_MAP
+    - _SPECULAR_ROUGHNESS
+    - _SPECULAR_ROUGHNESS_MAP
+    - _SPECULAR_IOR
+    - _SPECULAR_IOR_MAP
+    - _EMISSION_COLOR
+    - _EMISSION_COLOR_MAP
+    - _NORMAL_MAP
+    - unity_Lightmaps
+    - unity_LightmapsInd
+    - unity_ShadowMasks
+  - name: ArnoldStandardSurfaceTransparent
+    properties:
+    - _BASE_COLOR
+    - _BASE_COLOR_MAP
+    - _METALNESS
+    - _METALNESS_MAP
+    - _SPECULAR_COLOR
+    - _SPECULAR_COLOR_MAP
+    - _SPECULAR_ROUGHNESS
+    - _SPECULAR_ROUGHNESS_MAP
+    - _SPECULAR_IOR
+    - _SPECULAR_IOR_MAP
+    - _EMISSION_COLOR
+    - _EMISSION_COLOR_MAP
+    - _NORMAL_MAP
+    - _OPACITY
+    - _OPACITY_MAP
+    - unity_Lightmaps
+    - unity_LightmapsInd
+    - unity_ShadowMasks
+  - name: PhysicalMaterial3DsMax
+    properties:
+    - _BASE_COLOR_WEIGHT
+    - _BASE_COLOR
+    - _BASE_COLOR_MAP
+    - _REFLECTIONS_WEIGHT
+    - _REFLECTIONS_COLOR
+    - _REFLECTIONS_COLOR_MAP
+    - _REFLECTIONS_ROUGHNESS
+    - _REFLECTIONS_ROUGHNESS_MAP
+    - _METALNESS
+    - _METALNESS_MAP
+    - _REFLECTIONS_IOR
+    - _REFLECTIONS_IOR_MAP
+    - _TRANSPARENCY
+    - _TRANSPARENCY_MAP
+    - _EMISSION_WEIGHT
+    - _EMISSION_COLOR
+    - _EMISSION_COLOR_MAP
+    - _BUMP_MAP_STRENGTH
+    - _BUMP_MAP
+    - unity_Lightmaps
+    - unity_LightmapsInd
+    - unity_ShadowMasks
+  - name: PhysicalMaterial3DsMaxTransparent
+    properties:
+    - _BASE_COLOR_WEIGHT
+    - _BASE_COLOR
+    - _BASE_COLOR_MAP
+    - _REFLECTIONS_WEIGHT
+    - _REFLECTIONS_COLOR
+    - _REFLECTIONS_COLOR_MAP
+    - _REFLECTIONS_ROUGHNESS
+    - _REFLECTIONS_ROUGHNESS_MAP
+    - _METALNESS
+    - _METALNESS_MAP
+    - _REFLECTIONS_IOR
+    - _REFLECTIONS_IOR_MAP
+    - _TRANSPARENCY
+    - _TRANSPARENCY_MAP
+    - _EMISSION_WEIGHT
+    - _EMISSION_COLOR
+    - _EMISSION_COLOR_MAP
+    - _BUMP_MAP_STRENGTH
+    - _BUMP_MAP
+    - unity_Lightmaps
+    - unity_LightmapsInd
+    - unity_ShadowMasks
+  - name: Light2D_Point
+    properties:
+    - _SrcBlend
+    - _DstBlend
+  - name: Light2D_Shape
+    properties:
+    - _SrcBlend
+    - _DstBlend
+  - name: Shadow2DRemoveSelf
+    properties:
+    - _MainTex
+    - _ShadowStencilGroup
+  - name: ShadowGroup2D
+    properties:
+    - _MainTex
+    - _ShadowStencilGroup
+  - name: Sprite_Lit_Default
+    properties:
+    - _MainTex
+    - _MaskTex
+    - _NormalMap
+    - _Color
+    - _RendererColor
+    - _Flip
+    - _AlphaTex
+    - _EnableExternalAlpha
+  - name: Autodesk_Interactive_Masked
+    properties:
+    - _UseColorMap
+    - _Color
+    - _MainTex
+    - _UseNormalMap
+    - _BumpMap
+    - _UseMetallicMap
+    - _Metallic
+    - _MetallicGlossMap
+    - _UseRoughnessMap
+    - _Glossiness
+    - _SpecGlossMap
+    - _UseEmissiveMap
+    - _EmissionColor
+    - _EmissionMap
+    - Boolean_8A2B8817
+    - _OcclusionMap
+    - _OpacityThreshold
+    - _UvOffset
+    - _UvTiling
+    - unity_Lightmaps
+    - unity_LightmapsInd
+    - unity_ShadowMasks
+  - name: Autodesk_Interactive_Transparent
+    properties:
+    - _UseColorMap
+    - _Color
+    - _MainTex
+    - _UseNormalMap
+    - _BumpMap
+    - _UseMetallicMap
+    - _Metallic
+    - _MetallicGlossMap
+    - _UseRoughnessMap
+    - _Glossiness
+    - _SpecGlossMap
+    - _UseEmissiveMap
+    - _EmissionColor
+    - _EmissionMap
+    - _UseOpacityMap
+    - _Opacity
+    - _UvOffset
+    - _UvTiling
+    - unity_Lightmaps
+    - unity_LightmapsInd
+    - unity_ShadowMasks
+  - name: Autodesk_Interactive
+    properties:
+    - _UseColorMap
+    - _Color
+    - _MainTex
+    - _UseNormalMap
+    - _BumpMap
+    - _UseMetallicMap
+    - _Metallic
+    - _MetallicGlossMap
+    - _UseRoughnessMap
+    - _Glossiness
+    - _SpecGlossMap
+    - _UseEmissiveMap
+    - _EmissionColor
+    - _EmissionMap
+    - _UseAoMap
+    - _OcclusionMap
+    - _UvOffset
+    - _UvTiling
+    - unity_Lightmaps
+    - unity_LightmapsInd
+    - unity_ShadowMasks
+  - name: Baked_Lit
+    properties:
+    - _BaseMap
+    - _BaseColor
+    - _Cutoff
+    - _BumpMap
+    - _Surface
+    - _Blend
+    - _AlphaClip
+    - _SrcBlend
+    - _DstBlend
+    - _ZWrite
+    - _Cull
+    - _QueueOffset
+    - unity_Lightmaps
+    - unity_LightmapsInd
+    - unity_ShadowMasks
+  - name: Complex_Lit
+    properties:
+    - _WorkflowMode
+    - _BaseMap
+    - _BaseColor
+    - _Cutoff
+    - _Smoothness
+    - _GlossMapScale
+    - _SmoothnessTextureChannel
+    - _Metallic
+    - _MetallicGlossMap
+    - _SpecColor
+    - _SpecGlossMap
+    - _SpecularHighlights
+    - _EnvironmentReflections
+    - _BumpScale
+    - _BumpMap
+    - _Parallax
+    - _ParallaxMap
+    - _OcclusionStrength
+    - _OcclusionMap
+    - _EmissionColor
+    - _EmissionMap
+    - _DetailMask
+    - _DetailAlbedoMapScale
+    - _DetailAlbedoMap
+    - _DetailNormalMapScale
+    - _DetailNormalMap
+    - _ClearCoat
+    - _ClearCoatMap
+    - _ClearCoatMask
+    - _ClearCoatSmoothness
+    - _Surface
+    - _Blend
+    - _AlphaClip
+    - _SrcBlend
+    - _DstBlend
+    - _ZWrite
+    - _Cull
+    - _ReceiveShadows
+    - _QueueOffset
+    - unity_Lightmaps
+    - unity_LightmapsInd
+    - unity_ShadowMasks
+  - name: Lit
+    properties:
+    - _WorkflowMode
+    - _BaseMap
+    - _BaseColor
+    - _Cutoff
+    - _Smoothness
+    - _GlossMapScale
+    - _SmoothnessTextureChannel
+    - _Metallic
+    - _MetallicGlossMap
+    - _SpecColor
+    - _SpecGlossMap
+    - _SpecularHighlights
+    - _EnvironmentReflections
+    - _BumpScale
+    - _BumpMap
+    - _Parallax
+    - _ParallaxMap
+    - _OcclusionStrength
+    - _OcclusionMap
+    - _EmissionColor
+    - _EmissionMap
+    - _DetailMask
+    - _DetailAlbedoMapScale
+    - _DetailAlbedoMap
+    - _DetailNormalMapScale
+    - _DetailNormalMap
+    - _ClearCoatMask
+    - _ClearCoatSmoothness
+    - _Surface
+    - _Blend
+    - _AlphaClip
+    - _SrcBlend
+    - _DstBlend
+    - _ZWrite
+    - _Cull
+    - _ReceiveShadows
+    - _QueueOffset
+    - _MainTex
+    - _Color
+    - _Glossiness
+    - _GlossyReflections
+    - unity_Lightmaps
+    - unity_LightmapsInd
+    - unity_ShadowMasks
+  - name: SpeedTree7
+    properties:
+    - _Color
+    - _HueVariation
+    - _MainTex
+    - _DetailTex
+    - _BumpMap
+    - _Cutoff
+    - _Cull
+    - _WindQuality
+  - name: SpeedTree7_Billboard
+    properties:
+    - _Color
+    - _HueVariation
+    - _MainTex
+    - _BumpMap
+    - _Cutoff
+    - _WindQuality
+  - name: SpeedTree8
+    properties:
+    - _MainTex
+    - _Color
+    - _HueVariationKwToggle
+    - _HueVariationColor
+    - _NormalMapKwToggle
+    - _BumpMap
+    - _ExtraTex
+    - _Glossiness
+    - _Metallic
+    - _SubsurfaceKwToggle
+    - _SubsurfaceTex
+    - _SubsurfaceColor
+    - _SubsurfaceIndirect
+    - _BillboardKwToggle
+    - _BillboardShadowFade
+    - _TwoSided
+    - _WindQuality
+  - name: Lit_D1
+    properties:
+    - _BaseMap
+    - _BaseColor
+    - _Cutoff
+    - _MetallicGlossMap
+    - _Metallic
+    - _Smoothness
+    - _BumpScale
+    - _BumpMap
+    - _EmissionColor
+    - _EmissionMap
+    - _ReceiveShadows
+    - _SoftParticlesNearFadeDistance
+    - _SoftParticlesFarFadeDistance
+    - _CameraNearFadeDistance
+    - _CameraFarFadeDistance
+    - _DistortionBlend
+    - _DistortionStrength
+    - _Surface
+    - _Blend
+    - _AlphaClip
+    - _BlendOp
+    - _SrcBlend
+    - _DstBlend
+    - _ZWrite
+    - _Cull
+    - _ColorMode
+    - _BaseColorAddSubDiff
+    - _FlipbookBlending
+    - _SoftParticlesEnabled
+    - _CameraFadingEnabled
+    - _SoftParticleFadeParams
+    - _CameraFadeParams
+    - _DistortionEnabled
+    - _DistortionStrengthScaled
+    - _QueueOffset
+    - _FlipbookMode
+    - _Glossiness
+    - _Mode
+    - _Color
+  - name: Simple_Lit
+    properties:
+    - _BaseMap
+    - _BaseColor
+    - _Cutoff
+    - _SpecGlossMap
+    - _SpecColor
+    - _Smoothness
+    - _BumpScale
+    - _BumpMap
+    - _EmissionColor
+    - _EmissionMap
+    - _SmoothnessSource
+    - _SpecularHighlights
+    - _ReceiveShadows
+    - _SoftParticlesNearFadeDistance
+    - _SoftParticlesFarFadeDistance
+    - _CameraNearFadeDistance
+    - _CameraFarFadeDistance
+    - _DistortionBlend
+    - _DistortionStrength
+    - _Surface
+    - _Blend
+    - _AlphaClip
+    - _BlendOp
+    - _SrcBlend
+    - _DstBlend
+    - _ZWrite
+    - _Cull
+    - _ColorMode
+    - _BaseColorAddSubDiff
+    - _FlipbookBlending
+    - _SoftParticlesEnabled
+    - _CameraFadingEnabled
+    - _SoftParticleFadeParams
+    - _CameraFadeParams
+    - _DistortionEnabled
+    - _DistortionStrengthScaled
+    - _QueueOffset
+    - _FlipbookMode
+    - _Glossiness
+    - _Mode
+    - _Color
+  - name: Unlit
+    properties:
+    - _BaseMap
+    - _BaseColor
+    - _Cutoff
+    - _BumpMap
+    - _EmissionColor
+    - _EmissionMap
+    - _SoftParticlesNearFadeDistance
+    - _SoftParticlesFarFadeDistance
+    - _CameraNearFadeDistance
+    - _CameraFarFadeDistance
+    - _DistortionBlend
+    - _DistortionStrength
+    - _Surface
+    - _Blend
+    - _AlphaClip
+    - _BlendOp
+    - _SrcBlend
+    - _DstBlend
+    - _ZWrite
+    - _Cull
+    - _ColorMode
+    - _BaseColorAddSubDiff
+    - _FlipbookBlending
+    - _SoftParticlesEnabled
+    - _CameraFadingEnabled
+    - _SoftParticleFadeParams
+    - _CameraFadeParams
+    - _DistortionEnabled
+    - _DistortionStrengthScaled
+    - _QueueOffset
+    - _FlipbookMode
+    - _Mode
+    - _Color
+  - name: SubpixelMorphologicalAntialiasing
+    properties:
+    - _StencilRef
+    - _StencilMask
+  - name: Simple_Lit_D1
+    properties:
+    - _BaseMap
+    - _BaseColor
+    - _Cutoff
+    - _SpecColor
+    - _SpecGlossMap
+    - _SmoothnessSource
+    - _SpecularHighlights
+    - _BumpScale
+    - _BumpMap
+    - _EmissionColor
+    - _EmissionMap
+    - _Surface
+    - _Blend
+    - _AlphaClip
+    - _SrcBlend
+    - _DstBlend
+    - _ZWrite
+    - _Cull
+    - _ReceiveShadows
+    - _QueueOffset
+    - _Smoothness
+    - _MainTex
+    - _Color
+    - _Shininess
+    - _GlossinessSource
+    - _SpecSource
+    - unity_Lightmaps
+    - unity_LightmapsInd
+    - unity_ShadowMasks
+  - name: Vertexlit
+    properties:
+    - _MainTex
+  - name: Lit_D2
+    properties:
+    - _EnableHeightBlend
+    - _HeightTransition
+    - _NumLayersCount
+    - _Control
+    - _Splat3
+    - _Splat2
+    - _Splat1
+    - _Splat0
+    - _Normal3
+    - _Normal2
+    - _Normal1
+    - _Normal0
+    - _Mask3
+    - _Mask2
+    - _Mask1
+    - _Mask0
+    - _Metallic0
+    - _Metallic1
+    - _Metallic2
+    - _Metallic3
+    - _Smoothness0
+    - _Smoothness1
+    - _Smoothness2
+    - _Smoothness3
+    - _MainTex
+    - _BaseColor
+    - _TerrainHolesTexture
+    - _EnableInstancedPerPixelNormal
+  - name: Lit__Add_Pass_
+    properties:
+    - _NumLayersCount
+    - _Control
+    - _Splat3
+    - _Splat2
+    - _Splat1
+    - _Splat0
+    - _Normal3
+    - _Normal2
+    - _Normal1
+    - _Normal0
+    - _Metallic0
+    - _Metallic1
+    - _Metallic2
+    - _Metallic3
+    - _Mask3
+    - _Mask2
+    - _Mask1
+    - _Mask0
+    - _Smoothness0
+    - _Smoothness1
+    - _Smoothness2
+    - _Smoothness3
+    - _BaseMap
+    - _BaseColor
+    - _TerrainHolesTexture
+  - name: Lit__Base_Pass_
+    properties:
+    - _BaseColor
+    - _MainTex
+    - _MetallicTex
+    - _TerrainHolesTexture
+  - name: Lit__Basemap_Gen_
+    properties:
+    - _NumLayersCount
+    - _Control
+    - _Splat0
+    - _Splat1
+    - _Splat2
+    - _Splat3
+    - _Mask3
+    - _Mask2
+    - _Mask1
+    - _Mask0
+    - _Metallic0
+    - _Metallic1
+    - _Metallic2
+    - _Metallic3
+    - _Smoothness0
+    - _Smoothness1
+    - _Smoothness2
+    - _Smoothness3
+    - _DstBlend
+  - name: WavingDoublePass
+    properties:
+    - _WavingTint
+    - _MainTex
+    - _WaveAndDistance
+    - _Cutoff
+  - name: BillboardWavingDoublePass
+    properties:
+    - _WavingTint
+    - _MainTex
+    - _WaveAndDistance
+    - _Cutoff
+  - name: Unlit_D1
+    properties:
+    - _BaseMap
+    - _BaseColor
+    - _Cutoff
+    - _Surface
+    - _Blend
+    - _AlphaClip
+    - _SrcBlend
+    - _DstBlend
+    - _ZWrite
+    - _Cull
+    - _QueueOffset
+    - _MainTex
+    - _Color
+    - _SampleGI
+  - name: StencilDeferred
+    properties:
+    - _StencilRef
+    - _StencilReadMask
+    - _StencilWriteMask
+    - _LitPunctualStencilRef
+    - _LitPunctualStencilReadMask
+    - _LitPunctualStencilWriteMask
+    - _SimpleLitPunctualStencilRef
+    - _SimpleLitPunctualStencilReadMask
+    - _SimpleLitPunctualStencilWriteMask
+    - _LitDirStencilRef
+    - _LitDirStencilReadMask
+    - _LitDirStencilWriteMask
+    - _SimpleLitDirStencilRef
+    - _SimpleLitDirStencilReadMask
+    - _SimpleLitDirStencilWriteMask
+    - _ClearStencilRef
+    - _ClearStencilReadMask
+    - _ClearStencilWriteMask
+  _ANIMPARAMS:
+  - name: Enemy CTRLR
+    parameters:
+    - Forward
+    - Turn
+    - FireReady
+    - Reloading
+    - ClipEmpty
+    - Shoot
+    - DoRapidStrafe
+    - IsHurting
+    - Stunned
+  - name: Humanoid ( 6-way Rapid Strafe )
+    parameters:
+    - Forward
+    - Turn
+    - Crouch
+    - OnGround
+    - Jump
+    - JumpLeg
+    - Win
+    - DeathTrigger
+  - name: Humanoid ( 6-way Strafe )
+    parameters:
+    - Forward
+    - Turn
+    - Crouch
+    - OnGround
+    - Jump
+    - JumpLeg
+    - Win
+    - DeathTrigger
+  - name: UI Glock CTRLR
+    parameters:
+    - FIRE
+  - name: JohnAnimCTRL_v2
+    parameters:
+    - Holsted
+    - Reloading
+    - ClipEmpty
+    - FireReady
+    - AmmoOut
+    - Shoot
+    - IsHurting
+  - name: PlayerAnimationCTRLR
+    parameters:
+    - AnimInputX
+    - AnimInputY
+    - Holsted
+    - Reloading
+    - ClipEmpty
+    - FireReady
+    - AmmoOut
+    - Shoot
+    - IsHurting
+    - DoRapidStrafe
+    - Throwing Grenade
+    - Throw Grenade
+  - name: PlayerLocomotionCTRLR
+    parameters:
+    - MoveInputX
+    - MoveInputY
+    - DoRapidStrafe
+    - Sprinting
+    - SPRINT
+  - name: PlayerAnimationCTRLR 1
+    parameters:
+    - AnimInputX
+    - AnimInputY
+  - name: PlayerLocomotionCTRLR 1
+    parameters:
+    - MoveInputX
+    - MoveInputY
+  - name: Basic Locomotion
+    parameters:
+    - IsWalking
+  - name: Linear Locomotion Blend Tree
+    parameters:
+    - Speed
+  - name: Main Animations
+    parameters:
+    - MoveBlend
+  _ANIMLAYERS:
+  - name: Enemy CTRLR
+    layers:
+    - Base Layer
+    - Hands
+    - Hurt
+  - name: Humanoid ( 6-way Rapid Strafe )
+    layers:
+    - Base Layer
+  - name: Humanoid ( 6-way Strafe )
+    layers:
+    - Base Layer
+  - name: UI Glock CTRLR
+    layers:
+    - Base Layer
+  - name: AnimationTestCTRLR
+    layers:
+    - Base Layer
+    - Animation Test
+  - name: JohnAnimCTRL_v2
+    layers:
+    - Base Layer
+    - Guns
+  - name: PlayerAnimationCTRLR
+    layers:
+    - Base Layer
+    - Locomotion Animation Layer
+    - Guns
+    - Grenades
+    - Hurt
+  - name: PlayerLocomotionCTRLR
+    layers:
+    - Base Layer
+  - name: UIGlock
+    layers:
+    - Base Layer
+  - name: PlayerAnimationCTRLR 1
+    layers:
+    - Base Layer
+    - Locomotion Animation Layer
+  - name: PlayerLocomotionCTRLR 1
+    layers:
+    - Base Layer
+  - name: Basic Locomotion
+    layers:
+    - Base Layer
+  - name: Linear Locomotion Blend Tree
+    layers:
+    - Base Layer
+  - name: Main Animations
+    layers:
+    - Base Layer
+  - name: RobotKyleIdleController
+    layers:
+    - Base Layer
+  - name: RobotKylePickUpController
+    layers:
+    - Base Layer
+  - name: RobotKylePullupsController
+    layers:
+    - Base Layer
+  - name: RobotKyleWalkController
+    layers:
+    - Base Layer
+  _ANIMSTATES:
+  - name: Enemy CTRLR
+    animLayers:
+    - name: Base Layer
+      animStates:
+      - name: Rapid Strafe Locomotion
+        tag: 
+      - name: Strafe Locomotion
+        tag: 
+      - name: New State
+        tag: 
+    - name: Hands
+      animStates:
+      - name: Idle
+        tag: 
+      - name: Reload
+        tag: 
+      - name: Reload Empty
+        tag: 
+      - name: Shoot
+        tag: 
+    - name: Hurt
+      animStates:
+      - name: New State
+        tag: 
+      - name: Hurt
+        tag: Hurt
+      - name: Stunned
+        tag: 
+  - name: Humanoid ( 6-way Rapid Strafe )
+    animLayers:
+    - name: Base Layer
+      animStates:
+      - name: Locomotion
+        tag: 
+      - name: Crouching
+        tag: 
+      - name: Airborne
+        tag: 
+      - name: Win
+        tag: 
+      - name: Dead
+        tag: 
+  - name: Humanoid ( 6-way Strafe )
+    animLayers:
+    - name: Base Layer
+      animStates:
+      - name: Locomotion
+        tag: 
+  - name: UI Glock CTRLR
+    animLayers:
+    - name: Base Layer
+      animStates:
+      - name: UI Glock Shoot
+        tag: 
+      - name: New State
+        tag: 
+  - name: AnimationTestCTRLR
+    animLayers:
+    - name: Animation Test
+      animStates:
+      - name: Grenade Throw
+        tag: 
+      - name: AK_Idle 1
+        tag: 
+  - name: JohnAnimCTRL_v2
+    animLayers:
+    - name: Base Layer
+      animStates:
+      - name: Idle Unarmed
+        tag: 
+    - name: Guns
+      animStates:
+      - name: Equip
+        tag: Equip
+      - name: Holster
+        tag: Holster
+      - name: Idle
+        tag: 
+      - name: Reload
+        tag: 
+      - name: Shoot
+        tag: 
+      - name: Reload_Empty
+        tag: 
+      - name: AmmoOut
+        tag: 
+      - name: Hurt
+        tag: 
+      - name: Idle Unarmed
+        tag: 
+  - name: PlayerAnimationCTRLR
+    animLayers:
+    - name: Locomotion Animation Layer
+      animStates:
+      - name: ' Strafe Animation State'
+        tag: 
+      - name: Walk Animation State
+        tag: 
+      - name: New State
+        tag: 
+    - name: Guns
+      animStates:
+      - name: Holster
+        tag: Holster
+      - name: AmmoOut
+        tag: 
+      - name: Equip
+        tag: Equip
+      - name: Hurt
+        tag: 
+      - name: Idle
+        tag: 
+      - name: Reload
+        tag: 
+      - name: Shoot
+        tag: 
+      - name: Reload_Empty
+        tag: 
+      - name: Unarmed
+        tag: 
+    - name: Grenades
+      animStates:
+      - name: Throw End
+        tag: 
+      - name: Grenade Throw
+        tag: 
+    - name: Hurt
+      animStates:
+      - name: Hurt
+        tag: 
+      - name: IDLE
+        tag: 
+  - name: PlayerLocomotionCTRLR
+    animLayers:
+    - name: Base Layer
+      animStates:
+      - name: Rapid Strafe Locomotion
+        tag: 
+      - name: Strafe Locomotion
+        tag: 
+      - name: Start Switch
+        tag: 
+      - name: Slowed Rapid Strafe Locomotion
+        tag: 
+  - name: UIGlock
+    animLayers:
+    - name: Base Layer
+      animStates:
+      - name: Rotate
+        tag: 
+      - name: New State
+        tag: 
+  - name: PlayerAnimationCTRLR 1
+    animLayers:
+    - name: Locomotion Animation Layer
+      animStates:
+      - name: Locomotion Animation State
+        tag: 
+      - name: RunForwards
+        tag: 
+  - name: PlayerLocomotionCTRLR 1
+    animLayers:
+    - name: Base Layer
+      animStates:
+      - name: Locomotion  State
+        tag: 
+  - name: Basic Locomotion
+    animLayers:
+    - name: Base Layer
+      animStates:
+      - name: Idle
+        tag: 
+      - name: Walk
+        tag: 
+      - name: Run
+        tag: 
+  - name: Linear Locomotion Blend Tree
+    animLayers:
+    - name: Base Layer
+      animStates:
+      - name: Move
+        tag: 
+  - name: Main Animations
+    animLayers:
+    - name: Base Layer
+      animStates:
+      - name: Locomotion
+        tag: 
+  - name: RobotKyleIdleController
+    animLayers:
+    - name: Base Layer
+      animStates:
+      - name: Idle
+        tag: 
+  - name: RobotKylePickUpController
+    animLayers:
+    - name: Base Layer
+      animStates:
+      - name: PickUp
+        tag: 
+  - name: RobotKylePullupsController
+    animLayers:
+    - name: Base Layer
+      animStates:
+      - name: IKPullups
+        tag: 
+  - name: RobotKyleWalkController
+    animLayers:
+    - name: Base Layer
+      animStates:
+      - name: WalkRM
+        tag: 
+  _NAVAREAS:
+  - Walkable
+  - Not Walkable
+  - Jump
+  _INPUTAXES:
+  - Horizontal
+  - Vertical
+  - Fire1
+  - Fire2
+  - Fire3
+  - Jump
+  - Mouse X
+  - Mouse Y
+  - Mouse ScrollWheel
+  - Submit
+  - Cancel
+  - Enable Debug Button 1
+  - Enable Debug Button 2
+  - Debug Reset
+  - Debug Next
+  - Debug Previous
+  - Debug Validate
+  - Debug Persistent
+  - Debug Multiplier
+  - Debug Horizontal
+  - Debug Vertical

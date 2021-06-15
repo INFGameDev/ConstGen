@@ -167,6 +167,7 @@ namespace ConstGen
         private string UnderscoreIdentifier( string str )
         {
             string result = Regex.Replace(str, "([^a-zA-Z0-9])", "_");
+            
 
             if ('0' <= result[0] && result[0] <= '9')
             {
@@ -191,6 +192,7 @@ namespace ConstGen
             if ( settings.identifierFormat == ConstGenSettings.IdentifierFormat.Under_Score_Divider )
             {
                 formattedIdentifier = UnderscoreIdentifier( str );
+                
             } 
             else 
             {
