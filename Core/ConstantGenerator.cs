@@ -159,7 +159,6 @@ namespace ConstGen
                 Debug.LogException(e);
             }
 
-
             AssetDatabase.Refresh();
 
         }
@@ -168,19 +167,13 @@ namespace ConstGen
         {
             string result = Regex.Replace(str, "([^a-zA-Z0-9])", "_");
             
-
             if ('0' <= result[0] && result[0] <= '9')
-            {
                 result = result.Insert(0, "_");
-            }
 
             return result;            
         }
 
-        public string EscapeDoubleQuote(string str)
-        {
-            return str.Replace("\"", "\"\"");
-        }
+        public string EscapeDoubleQuote(string str) =>  str.Replace("\"", "\"\"");
 
         public string CreateIdentifier(string str )
         {
@@ -189,13 +182,10 @@ namespace ConstGen
 
             string formattedIdentifier = string.Empty;
 
-            if ( settings.identifierFormat == ConstGenSettings.IdentifierFormat.Under_Score_Divider )
-            {
+            if ( settings.identifierFormat == ConstGenSettings.IdentifierFormat.Under_Score_Divider ) {
                 formattedIdentifier = UnderscoreIdentifier( str );
-                
             } 
-            else 
-            {
+            else {
                 formattedIdentifier = PascalCaseNoSpaceIdentifier( str );
             }
 
@@ -226,10 +216,13 @@ namespace ConstGen
             string formatedString = string.Empty;
 
             // append all words into a single string
-            for (int i = 0; i < words.Length; i++) 
-            {
+            for (int i = 0; i < words.Length; i++) {
                 formatedString += words[i];
             }
+
+            // if the first letter is a number add an underscore 
+            if ( char.IsNumber(formatedString[0]) )
+                formatedString = "_" + formatedString;
 
             return formatedString;
         }
