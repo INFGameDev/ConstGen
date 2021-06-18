@@ -13,24 +13,17 @@ MonoBehaviour:
   m_Name: ConstGenSettings
   m_EditorClassIdentifier: 
   regenerateOnMissing: 1
-  updateOnReload: 0
+  updateOnReload: 1
   closeOnGenerate: 0
-  identifierFormat: 0
+  identifierFormat: 1
   _LAYERS:
   - Default
   - TransparentFX
   - Ignore Raycast
   - Water
   - UI
-  - PostProcessing
-  - Player
-  - Masked
-  - Stencil Mask
-  - Obstacles
-  - Item Pickups
-  - ItemPickupTrigger
-  - CrossHair
-  - Enemy
+  - Ground
+  - Interactables
   _TAGS:
   - Untagged
   - Respawn
@@ -39,60 +32,68 @@ MonoBehaviour:
   - MainCamera
   - Player
   - GameController
-  - Weapon
-  - Enemy
-  - Obstacle
-  - GunItem
+  - Ground
+  - Item
   _SORTINGLAYERS:
   - Default
   _SCENES:
-  - Assets/_Scenes/Intro.unity
-  - Assets/_Scenes/Main Menu.unity
-  - Assets/_Scenes/Prototyping 4.unity
+  - Assets/Scenes/Main Menu.unity
+  - Assets/Scenes/Prototype Test.unity
+  - Assets/Scenes/Intro.unity
+  - Assets/Scenes/Test.unity
+  - Assets/Scenes/Void.unity
   _SHADERPROPS:
-  - name: Dissolve_Unity
+  - name: Blur
     properties:
-    - Vector1_C7E032C9
-    - Vector1_C27BF4A
+    - _INTENSITY
     - unity_Lightmaps
     - unity_LightmapsInd
     - unity_ShadowMasks
-  - name: DissovleDaniel
+  - name: Blur_D1
     properties:
-    - Color_C8C9BFE2
-    - _NoiseScale
-    - _NoiseStrength
-    - _CutOffHeight
-    - _EdgeWidth
-    - _EdgeColor
+    - _INTENSITY
     - unity_Lightmaps
     - unity_LightmapsInd
     - unity_ShadowMasks
-  - name: Outline_Mask
+  - name: LowPolyVegetation
     properties:
-    - _ZTest
-    - _Color
-    - _BaseMap
-    - _BaseMapTiling
-    - _BaseMapOffset
-    - _NormalMap
-    - _NormalMapOffset
-    - _NormalMapStrength
     - _EmissionColor
-    - _EmissionMap
-    - _Metallicness
-    - _MetallicMap
+    - _AlphaCutoff
+    - _MainTex
+    - _Metallic
     - _Smoothness
-    - _SmoothnessMap
-    - _Alpha
-    - _AOMap
-    - BOOLEAN_73FD9519
+    - _MBDefaultBending
+    - _MBAmplitude
+    - _MBAmplitudeOffset
+    - _MBFrequency
+    - _MBFrequencyOffset
+    - _MBPhase
+    - _MBWindDir
+    - _MBWindDirOffset
+    - _MBMaxHeight
+    - _NoiseTexture
+    - _NoiseTextureTilling
+    - _NoisePannerSpeed
+  - name: Interactable
+    properties:
+    - _BaseMap
+    - _Tint
+    - _BaseTiling
+    - _BaseOffset
+    - _FresnelColor
+    - _FresnelPower
+    - _Metallic
+    - _Smoothness
+    - _EnableEmission
+    - unity_Lightmaps
+    - unity_LightmapsInd
+    - unity_ShadowMasks
   - name: Outline
     properties:
     - _ZTest
     - _OutlineColor
     - _OutlineWidth
-  - name: Outline_Mask_D1
+  - name: OutlineMask
     properties:
     - _ZTest
     - _Color
@@ -114,7 +115,7 @@ MonoBehaviour:
     - unity_LightmapsInd
     - unity_ShadowMasks
     - BOOLEAN_73FD9519
-  - name: OutlineMask_URP
+  - name: OutlineMaskURP
     properties:
     - _Color
     - _BaseMap
@@ -135,31 +136,37 @@ MonoBehaviour:
     - unity_LightmapsInd
     - unity_ShadowMasks
     - BOOLEAN_73FD9519
-  - name: Outline_Mask_D2
+  - name: OutlineMask_D1
     properties:
     - _ZTest
     - _MainTex
-  - name: Graph_Mobile
+  - name: CubemapExtended
     properties:
-    - _MainTex
-    - _Color
-    - PixelSnap
-    - _GoodColor
-    - _CautionColor
-    - _CriticalColor
-    - _GoodThreshold
-    - _CautionThreshold
-  - name: Graph_Standard
+    - _IsStandardPipeline
+    - _SkyboxExtended
+    - _Cubemapp
+    - _Tex
+    - _Exposure
+    - _TintColor
+    - _CubemapPosition
+    - _Rotationn
+    - _EnableRotation
+    - _Rotation
+    - _RotationSpeed
+    - _Fogg
+    - _EnableFog
+    - _FogMessage
+    - _FogIntensity
+    - _FogHeight
+    - _FogSmoothness
+    - _FogFill
+    - _Tex_HDR
+    - _FogPosition
+  - name: GradientBackgroundShader
     properties:
-    - _MainTex
-    - _Color
-    - PixelSnap
-    - _GoodColor
-    - _CautionColor
-    - _CriticalColor
-    - _GoodThreshold
-    - _CautionThreshold
-  - name: Bitmap_Custom_Atlas
+    - _ColorTop
+    - _ColorBottom
+  - name: BitmapCustomAtlas
     properties:
     - _MainTex
     - _FaceTex
@@ -208,7 +215,7 @@ MonoBehaviour:
     - _StencilWriteMask
     - _StencilReadMask
     - _ColorMask
-  - name: Distance_Field_Overlay
+  - name: DistanceFieldOverlay
     properties:
     - _FaceTex
     - _FaceUVSpeedX
@@ -275,7 +282,7 @@ MonoBehaviour:
     - _StencilWriteMask
     - _StencilReadMask
     - _ColorMask
-  - name: Distance_Field___Masking
+  - name: DistanceFieldMasking
     properties:
     - _FaceColor
     - _FaceDilate
@@ -317,7 +324,7 @@ MonoBehaviour:
     - _StencilWriteMask
     - _StencilReadMask
     - _ColorMask
-  - name: Distance_Field_Overlay_D1
+  - name: DistanceFieldOverlay_D1
     properties:
     - _FaceColor
     - _FaceDilate
@@ -354,7 +361,7 @@ MonoBehaviour:
     - _StencilWriteMask
     - _StencilReadMask
     - _ColorMask
-  - name: Distance_Field
+  - name: DistanceField
     properties:
     - _FaceColor
     - _FaceDilate
@@ -391,7 +398,7 @@ MonoBehaviour:
     - _StencilWriteMask
     - _StencilReadMask
     - _ColorMask
-  - name: Distance_Field__Surface_
+  - name: DistanceFieldSurface
     properties:
     - _FaceTex
     - _FaceColor
@@ -421,7 +428,7 @@ MonoBehaviour:
     - _Sharpness
     - _VertexOffsetX
     - _VertexOffsetY
-  - name: Distance_Field__Surface__D1
+  - name: DistanceFieldSurface_D1
     properties:
     - _FaceTex
     - _FaceUVSpeedX
@@ -470,7 +477,7 @@ MonoBehaviour:
     - _Sharpness
     - _VertexOffsetX
     - _VertexOffsetY
-  - name: Distance_Field_D1
+  - name: DistanceField_D1
     properties:
     - _FaceTex
     - _FaceUVSpeedX
@@ -549,116 +556,6 @@ MonoBehaviour:
     - _ColorMask
     - _ClipRect
     - _UseUIAlphaClip
-  - name: Camera_Lit
-    properties:
-    - _Color
-    - _WireColor
-    - _WireSize
-  - name: Color_Unlit
-    properties:
-    - _Color
-  - name: Color_Unlit_Transparent
-    properties:
-    - _Color
-  - name: Unlit_Dashed_Line
-    properties:
-    - _Color
-    - _Thickness
-    - _DashFrequency
-  - name: Unlit_Line
-    properties:
-    - _Color
-    - _Thickness
-  - name: Vertex_Color_Unlit
-    properties:
-    - _MainTex
-  - name: Wires_Only
-    properties:
-    - _Color
-    - _Size
-  - name: DamageImpact
-    properties:
-    - Texture2D_1E57CD08
-    - Color_FEAE838
-    - Boolean_72FCAA81
-    - Vector1_BEE6D1E0
-    - Color_74F3C918
-    - unity_Lightmaps
-    - unity_LightmapsInd
-    - unity_ShadowMasks
-  - name: DissolveShader
-    properties:
-    - _Color
-    - _BaseMap
-    - _BaseMapTiling
-    - _BaseMapOffset
-    - _NormalMap
-    - _NormalMapOffset
-    - _NormalMapStrength
-    - _EmissionColor
-    - _EmissionMap
-    - _Metallicness
-    - _MetallicMap
-    - _Smoothness
-    - _SmoothnessMap
-    - _AOMap
-    - _NoiseScale
-    - _DissolveAmount
-    - _EdgeWidth
-    - _EdgeColor
-    - _Emission
-    - unity_Lightmaps
-    - unity_LightmapsInd
-    - unity_ShadowMasks
-  - name: GridShader
-    properties:
-    - Color_39347459
-    - Color_6B3A8533
-    - Vector2_DFCF936C
-    - Vector2_96B9C04A
-    - Vector1_721B8BC5
-    - Vector1_B8554FCD
-    - Vector1_ACD0DFE6
-    - Vector1_58698441
-    - unity_Lightmaps
-    - unity_LightmapsInd
-    - unity_ShadowMasks
-  - name: Lit_SG
-    properties:
-    - _Color
-    - _BaseMap
-    - _BaseMapTiling
-    - _BaseMapOffset
-    - _NormalMap
-    - _NormalMapOffset
-    - _NormalMapStrength
-    - _EmissionColor
-    - _EmissionMap
-    - _Metallicness
-    - _MetallicMap
-    - _Smoothness
-    - _SmoothnessMap
-    - _AOMap
-    - _Alpha
-    - AlphaClip
-    - unity_Lightmaps
-    - unity_LightmapsInd
-    - unity_ShadowMasks
-    - BOOLEAN_73FD9519
-  - name: NewSurfaceShader
-    properties:
-    - _Color
-    - _MainTex
-    - _Glossiness
-    - _Metallic
-  - name: BoneHandles
-    properties:
-    - _Color
-  - name: RigEffector
-    properties:
-    - _Color
-    - _Dither
-    - _HandleZTest
   - name: UnlitTransparentColored
     properties:
     - _Color
@@ -692,25 +589,13 @@ MonoBehaviour:
     - _MainTex
     - _CubeToLatLongParams
     - _WindowParams
-  - name: CopyStd
-    properties:
-    - _MainTex
-  - name: CopyStdFromDoubleWide
-    properties:
-    - _MainTex
-  - name: CopyStdFromTexArray
-    properties:
-    - _MainTex
-  - name: ConvertToLog
-    properties:
-    - _MainTex
-  - name: Diffuse_Texture_Blend
+  - name: DiffuseTextureBlend
     properties:
     - _FirstTex
     - _SecondTex
     - _ThirdTex
     - _FourthTex
-  - name: Diffuse_Vertex_Color
+  - name: DiffuseVertexColor
     properties:
     - _MainTex
   - name: FaceHighlight
@@ -718,11 +603,13 @@ MonoBehaviour:
     - _Color
     - _Dither
     - _HandleZTest
+    - _HandleZWrite
   - name: LineBillboard
     properties:
     - _Color
     - _Scale
     - _HandleZTest
+    - _HandleZWrite
   - name: LineBillboardMetal
     properties:
     - _Scale
@@ -734,7 +621,8 @@ MonoBehaviour:
     - _Color
     - _Scale
     - _HandleZTest
-  - name: Reference_Unlit
+    - _HandleZWrite
+  - name: ReferenceUnlit
     properties:
     - _MainTex
   - name: ScrollHighlight
@@ -747,7 +635,7 @@ MonoBehaviour:
   - name: SmoothingPreview
     properties:
     - _Opacity
-  - name: Standard_Vertex_Color
+  - name: StandardVertexColor
     properties:
     - _Color
     - _MainTex
@@ -756,7 +644,7 @@ MonoBehaviour:
   - name: TransparentOverlay
     properties:
     - _MainTex
-  - name: Unlit_Solid_Color
+  - name: UnlitSolidColor
     properties:
     - _Color
   - name: VertexShader
@@ -764,10 +652,172 @@ MonoBehaviour:
     - _Scale
     - _Color
     - _HandleZTest
+    - _HandleZWrite
+  - name: GridShader
+    properties:
+    - _AlphaCutoff
+    - _AlphaFade
+    - _Color
   - name: BlitNoAlpha
     properties:
     - _MainTex
-  - name: Distance_Field_SSD
+  - name: BlendModes
+    properties:
+    - _MainTex
+  - name: Filters
+    properties:
+    - _MainTex
+  - name: CloneBrush
+    properties:
+    - _MainTex
+  - name: ContrastTool
+    properties:
+    - _MainTex
+  - name: NoiseBlitFbm
+    properties:
+    - _MainTex
+  - name: NoiseBlitNone
+    properties:
+    - _MainTex
+  - name: NoiseBlitStrata
+    properties:
+    - _MainTex
+  - name: NoiseFillFbm
+    properties:
+    - _MainTex
+  - name: NoiseFillNone
+    properties:
+    - _MainTex
+  - name: NoiseFillStrata
+    properties:
+    - _MainTex
+  - name: MeshStamp
+    properties:
+    - _MainTex
+  - name: MeshStamp2
+    properties:
+    - _MainTex
+  - name: MeshUtility
+    properties:
+    - _MainTex
+  - name: NoiseFill
+    properties:
+    - _MainTex
+  - name: NoiseHeightTool
+    properties:
+    - _MainTex
+  - name: DefaultPreview
+    properties:
+    - _MainTex
+  - name: Preview
+    properties:
+    - _MainTex
+  - name: PaintAspect
+    properties:
+    - _MainTex
+  - name: PaintConcavity
+    properties:
+    - _MainTex
+  - name: PaintHeightTool
+    properties:
+    - _MainTex
+  - name: PaintTextureAdvance
+    properties:
+    - _MainTex
+  - name: PinchHeight
+    properties:
+    - _MainTex
+  - name: SedimentSplat
+    properties:
+    - _MainTex
+  - name: SetExactHeight
+    properties:
+    - _MainTex
+  - name: SharpenPeaks
+    properties:
+    - _MainTex
+  - name: SimpleHeightBlend
+    properties:
+    - _MainTex
+  - name: SlopeFlatten
+    properties:
+    - _MainTex
+  - name: SmoothHeight
+    properties:
+    - _MainTex
+  - name: SmudgeHeight
+    properties:
+    - _MainTex
+  - name: TerraceErosion
+    properties:
+    - _MainTex
+  - name: HeightBlit
+    properties:
+    - _MainTex
+  - name: TexelValidityBlit
+    properties:
+    - _MainTex
+  - name: TwistHeight
+    properties:
+    - _MainTex
+  - name: BuiltinTerrainVisualization
+    properties:
+    - _HeatmapGradient
+    - _HeatHeightmap
+    - _HeatmapData
+    - _SplatmapTex
+    - _Color
+    - _MainTex
+  - name: HDRPTerrainVisualization
+    properties:
+    - _EnableHeightBlend
+    - _HeightTransition
+    - _StencilRef
+    - _StencilWriteMask
+    - _StencilRefGBuffer
+    - _StencilWriteMaskGBuffer
+    - _StencilRefDepth
+    - _StencilWriteMaskDepth
+    - _ZWrite
+    - _CullMode
+    - _ZTestDepthEqualForOpaque
+    - _ZTestGBuffer
+    - _EnableInstancedPerPixelNormal
+    - _HeatHeightmap
+    - _HeatmapGradient
+    - _HeatmapData
+    - _SplatmapTex
+    - _EmissionColor
+    - _MainTex
+    - _Color
+    - _SupportDecals
+    - _ReceivesSSR
+  - name: LWRPTerrainVisualization
+    properties:
+    - _HeatHeightmap
+    - _HeatmapGradient
+    - _HeatmapData
+    - _SplatmapTex
+    - _MainTex
+    - _Color
+    - _TERRAIN_INSTANCED_PERPIXEL_NORMAL
+  - name: UniversalTerrainVisualization
+    properties:
+    - _HeatHeightmap
+    - _HeatmapGradient
+    - _HeatmapData
+    - _SplatmapTex
+    - _MainTex
+    - _Color
+    - _TERRAIN_INSTANCED_PERPIXEL_NORMAL
+  - name: _3DNoiseTests
+    properties:
+    - _Color
+    - _MainTex
+    - _Glossiness
+    - _Metallic
+    - _Octaves
+  - name: DistanceFieldSSD
     properties:
     - _FaceColor
     - _FaceDilate
@@ -881,11 +931,11 @@ MonoBehaviour:
     - unity_Lightmaps
     - unity_LightmapsInd
     - unity_ShadowMasks
-  - name: Light2D_Point
+  - name: Light2DPoint
     properties:
     - _SrcBlend
     - _DstBlend
-  - name: Light2D_Shape
+  - name: Light2DShape
     properties:
     - _SrcBlend
     - _DstBlend
@@ -897,7 +947,7 @@ MonoBehaviour:
     properties:
     - _MainTex
     - _ShadowStencilGroup
-  - name: Sprite_Lit_Default
+  - name: SpriteLitDefault
     properties:
     - _MainTex
     - _MaskTex
@@ -907,7 +957,7 @@ MonoBehaviour:
     - _Flip
     - _AlphaTex
     - _EnableExternalAlpha
-  - name: Autodesk_Interactive_Masked
+  - name: AutodeskInteractiveMasked
     properties:
     - _UseColorMap
     - _Color
@@ -931,7 +981,7 @@ MonoBehaviour:
     - unity_Lightmaps
     - unity_LightmapsInd
     - unity_ShadowMasks
-  - name: Autodesk_Interactive_Transparent
+  - name: AutodeskInteractiveTransparent
     properties:
     - _UseColorMap
     - _Color
@@ -954,7 +1004,7 @@ MonoBehaviour:
     - unity_Lightmaps
     - unity_LightmapsInd
     - unity_ShadowMasks
-  - name: Autodesk_Interactive
+  - name: AutodeskInteractive
     properties:
     - _UseColorMap
     - _Color
@@ -977,7 +1027,7 @@ MonoBehaviour:
     - unity_Lightmaps
     - unity_LightmapsInd
     - unity_ShadowMasks
-  - name: Baked_Lit
+  - name: BakedLit
     properties:
     - _BaseMap
     - _BaseColor
@@ -994,7 +1044,7 @@ MonoBehaviour:
     - unity_Lightmaps
     - unity_LightmapsInd
     - unity_ShadowMasks
-  - name: Complex_Lit
+  - name: ComplexLit
     properties:
     - _WorkflowMode
     - _BaseMap
@@ -1094,7 +1144,7 @@ MonoBehaviour:
     - _Cutoff
     - _Cull
     - _WindQuality
-  - name: SpeedTree7_Billboard
+  - name: SpeedTree7Billboard
     properties:
     - _Color
     - _HueVariation
@@ -1162,7 +1212,7 @@ MonoBehaviour:
     - _Glossiness
     - _Mode
     - _Color
-  - name: Simple_Lit
+  - name: SimpleLit
     properties:
     - _BaseMap
     - _BaseColor
@@ -1244,7 +1294,7 @@ MonoBehaviour:
     properties:
     - _StencilRef
     - _StencilMask
-  - name: Simple_Lit_D1
+  - name: SimpleLit_D1
     properties:
     - _BaseMap
     - _BaseColor
@@ -1308,7 +1358,7 @@ MonoBehaviour:
     - _BaseColor
     - _TerrainHolesTexture
     - _EnableInstancedPerPixelNormal
-  - name: Lit__Add_Pass_
+  - name: LitAddPass
     properties:
     - _NumLayersCount
     - _Control
@@ -1335,13 +1385,13 @@ MonoBehaviour:
     - _BaseMap
     - _BaseColor
     - _TerrainHolesTexture
-  - name: Lit__Base_Pass_
+  - name: LitBasePass
     properties:
     - _BaseColor
     - _MainTex
     - _MetallicTex
     - _TerrainHolesTexture
-  - name: Lit__Basemap_Gen_
+  - name: LitBasemapGen
     properties:
     - _NumLayersCount
     - _Control
@@ -1410,365 +1460,9 @@ MonoBehaviour:
     - _ClearStencilRef
     - _ClearStencilReadMask
     - _ClearStencilWriteMask
-  _ANIMPARAMS:
-  - name: Enemy CTRLR
-    parameters:
-    - Forward
-    - Turn
-    - FireReady
-    - Reloading
-    - ClipEmpty
-    - Shoot
-    - DoRapidStrafe
-    - IsHurting
-    - Stunned
-  - name: Humanoid ( 6-way Rapid Strafe )
-    parameters:
-    - Forward
-    - Turn
-    - Crouch
-    - OnGround
-    - Jump
-    - JumpLeg
-    - Win
-    - DeathTrigger
-  - name: Humanoid ( 6-way Strafe )
-    parameters:
-    - Forward
-    - Turn
-    - Crouch
-    - OnGround
-    - Jump
-    - JumpLeg
-    - Win
-    - DeathTrigger
-  - name: UI Glock CTRLR
-    parameters:
-    - FIRE
-  - name: JohnAnimCTRL_v2
-    parameters:
-    - Holsted
-    - Reloading
-    - ClipEmpty
-    - FireReady
-    - AmmoOut
-    - Shoot
-    - IsHurting
-  - name: PlayerAnimationCTRLR
-    parameters:
-    - AnimInputX
-    - AnimInputY
-    - Holsted
-    - Reloading
-    - ClipEmpty
-    - FireReady
-    - AmmoOut
-    - Shoot
-    - IsHurting
-    - DoRapidStrafe
-    - Throwing Grenade
-    - Throw Grenade
-  - name: PlayerLocomotionCTRLR
-    parameters:
-    - MoveInputX
-    - MoveInputY
-    - DoRapidStrafe
-    - Sprinting
-    - SPRINT
-  - name: PlayerAnimationCTRLR 1
-    parameters:
-    - AnimInputX
-    - AnimInputY
-  - name: PlayerLocomotionCTRLR 1
-    parameters:
-    - MoveInputX
-    - MoveInputY
-  - name: Basic Locomotion
-    parameters:
-    - IsWalking
-  - name: Linear Locomotion Blend Tree
-    parameters:
-    - Speed
-  - name: Main Animations
-    parameters:
-    - MoveBlend
-  _ANIMLAYERS:
-  - name: Enemy CTRLR
-    layers:
-    - Base Layer
-    - Hands
-    - Hurt
-  - name: Humanoid ( 6-way Rapid Strafe )
-    layers:
-    - Base Layer
-  - name: Humanoid ( 6-way Strafe )
-    layers:
-    - Base Layer
-  - name: UI Glock CTRLR
-    layers:
-    - Base Layer
-  - name: AnimationTestCTRLR
-    layers:
-    - Base Layer
-    - Animation Test
-  - name: JohnAnimCTRL_v2
-    layers:
-    - Base Layer
-    - Guns
-  - name: PlayerAnimationCTRLR
-    layers:
-    - Base Layer
-    - Locomotion Animation Layer
-    - Guns
-    - Grenades
-    - Hurt
-  - name: PlayerLocomotionCTRLR
-    layers:
-    - Base Layer
-  - name: UIGlock
-    layers:
-    - Base Layer
-  - name: PlayerAnimationCTRLR 1
-    layers:
-    - Base Layer
-    - Locomotion Animation Layer
-  - name: PlayerLocomotionCTRLR 1
-    layers:
-    - Base Layer
-  - name: Basic Locomotion
-    layers:
-    - Base Layer
-  - name: Linear Locomotion Blend Tree
-    layers:
-    - Base Layer
-  - name: Main Animations
-    layers:
-    - Base Layer
-  - name: RobotKyleIdleController
-    layers:
-    - Base Layer
-  - name: RobotKylePickUpController
-    layers:
-    - Base Layer
-  - name: RobotKylePullupsController
-    layers:
-    - Base Layer
-  - name: RobotKyleWalkController
-    layers:
-    - Base Layer
-  _ANIMSTATES:
-  - name: Enemy CTRLR
-    animLayers:
-    - name: Base Layer
-      animStates:
-      - name: Rapid Strafe Locomotion
-        tag: 
-      - name: Strafe Locomotion
-        tag: 
-      - name: New State
-        tag: 
-    - name: Hands
-      animStates:
-      - name: Idle
-        tag: 
-      - name: Reload
-        tag: 
-      - name: Reload Empty
-        tag: 
-      - name: Shoot
-        tag: 
-    - name: Hurt
-      animStates:
-      - name: New State
-        tag: 
-      - name: Hurt
-        tag: Hurt
-      - name: Stunned
-        tag: 
-  - name: Humanoid ( 6-way Rapid Strafe )
-    animLayers:
-    - name: Base Layer
-      animStates:
-      - name: Locomotion
-        tag: 
-      - name: Crouching
-        tag: 
-      - name: Airborne
-        tag: 
-      - name: Win
-        tag: 
-      - name: Dead
-        tag: 
-  - name: Humanoid ( 6-way Strafe )
-    animLayers:
-    - name: Base Layer
-      animStates:
-      - name: Locomotion
-        tag: 
-  - name: UI Glock CTRLR
-    animLayers:
-    - name: Base Layer
-      animStates:
-      - name: UI Glock Shoot
-        tag: 
-      - name: New State
-        tag: 
-  - name: AnimationTestCTRLR
-    animLayers:
-    - name: Animation Test
-      animStates:
-      - name: Grenade Throw
-        tag: 
-      - name: AK_Idle 1
-        tag: 
-  - name: JohnAnimCTRL_v2
-    animLayers:
-    - name: Base Layer
-      animStates:
-      - name: Idle Unarmed
-        tag: 
-    - name: Guns
-      animStates:
-      - name: Equip
-        tag: Equip
-      - name: Holster
-        tag: Holster
-      - name: Idle
-        tag: 
-      - name: Reload
-        tag: 
-      - name: Shoot
-        tag: 
-      - name: Reload_Empty
-        tag: 
-      - name: AmmoOut
-        tag: 
-      - name: Hurt
-        tag: 
-      - name: Idle Unarmed
-        tag: 
-  - name: PlayerAnimationCTRLR
-    animLayers:
-    - name: Locomotion Animation Layer
-      animStates:
-      - name: ' Strafe Animation State'
-        tag: 
-      - name: Walk Animation State
-        tag: 
-      - name: New State
-        tag: 
-    - name: Guns
-      animStates:
-      - name: Holster
-        tag: Holster
-      - name: AmmoOut
-        tag: 
-      - name: Equip
-        tag: Equip
-      - name: Hurt
-        tag: 
-      - name: Idle
-        tag: 
-      - name: Reload
-        tag: 
-      - name: Shoot
-        tag: 
-      - name: Reload_Empty
-        tag: 
-      - name: Unarmed
-        tag: 
-    - name: Grenades
-      animStates:
-      - name: Throw End
-        tag: 
-      - name: Grenade Throw
-        tag: 
-    - name: Hurt
-      animStates:
-      - name: Hurt
-        tag: 
-      - name: IDLE
-        tag: 
-  - name: PlayerLocomotionCTRLR
-    animLayers:
-    - name: Base Layer
-      animStates:
-      - name: Rapid Strafe Locomotion
-        tag: 
-      - name: Strafe Locomotion
-        tag: 
-      - name: Start Switch
-        tag: 
-      - name: Slowed Rapid Strafe Locomotion
-        tag: 
-  - name: UIGlock
-    animLayers:
-    - name: Base Layer
-      animStates:
-      - name: Rotate
-        tag: 
-      - name: New State
-        tag: 
-  - name: PlayerAnimationCTRLR 1
-    animLayers:
-    - name: Locomotion Animation Layer
-      animStates:
-      - name: Locomotion Animation State
-        tag: 
-      - name: RunForwards
-        tag: 
-  - name: PlayerLocomotionCTRLR 1
-    animLayers:
-    - name: Base Layer
-      animStates:
-      - name: Locomotion  State
-        tag: 
-  - name: Basic Locomotion
-    animLayers:
-    - name: Base Layer
-      animStates:
-      - name: Idle
-        tag: 
-      - name: Walk
-        tag: 
-      - name: Run
-        tag: 
-  - name: Linear Locomotion Blend Tree
-    animLayers:
-    - name: Base Layer
-      animStates:
-      - name: Move
-        tag: 
-  - name: Main Animations
-    animLayers:
-    - name: Base Layer
-      animStates:
-      - name: Locomotion
-        tag: 
-  - name: RobotKyleIdleController
-    animLayers:
-    - name: Base Layer
-      animStates:
-      - name: Idle
-        tag: 
-  - name: RobotKylePickUpController
-    animLayers:
-    - name: Base Layer
-      animStates:
-      - name: PickUp
-        tag: 
-  - name: RobotKylePullupsController
-    animLayers:
-    - name: Base Layer
-      animStates:
-      - name: IKPullups
-        tag: 
-  - name: RobotKyleWalkController
-    animLayers:
-    - name: Base Layer
-      animStates:
-      - name: WalkRM
-        tag: 
+  _ANIMPARAMS: []
+  _ANIMLAYERS: []
+  _ANIMSTATES: []
   _NAVAREAS:
   - Walkable
   - Not Walkable
@@ -1795,3 +1489,7 @@ MonoBehaviour:
   - Debug Multiplier
   - Debug Horizontal
   - Debug Vertical
+  - Sprint
+  - Crouch
+  - Interact
+  - Inventory
