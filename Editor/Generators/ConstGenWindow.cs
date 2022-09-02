@@ -154,17 +154,9 @@ namespace ConstGen
                                 backgroundRect.width = border.width;
                                 backgroundRect.height = border.height;
                                 GUI.DrawTexture( backgroundRect, border );
-                                // GUI.Box( boxRect, iconBackground, );
-
-                                // GUI.Label( new Rect( boxRect.x+3, boxRect.y+30, 100, 20 ), "    (╯°□°）╯" );
-                                // GUI.Label( new Rect( boxRect.x+3, boxRect.y+18, 100, 20 ), "_____________" );
-                                // GUI.Label( new Rect( boxRect.x+3, boxRect.y+16, 100, 20 ), "Created BY: " );
 
                                 GUI.Label( new Rect( boxRect.x+3, boxRect.y+16, 100, 20 ), "Created BY:" );
                                 GUI.Label( new Rect( boxRect.x+3, boxRect.y+30, 100, 20 ), "     (╯°□°）╯︵" );
-
-                                // GUI.Label( new Rect( boxRect.x+3, boxRect.y, 100, 20 ), "Created BY: " );
-                                // GUI.Label( new Rect( boxRect.x+3, boxRect.y+30, 100, 20 ), "    (╯°□°）╯︵" );
 
                                 Rect logoRect = new Rect( boxRect.x+76, boxRect.y+2, logo.width, logo.height );
                                 GUI.DrawTexture( logoRect, logo);
